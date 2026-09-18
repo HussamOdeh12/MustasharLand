@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-emerald: #16a34a;
+  --color-brand-emerald-hover: #15803d;
+  --color-brand-emerald-deep: #14532d;
+  --color-brand-emerald-light: #dcfce7;
+
+  --color-charcoal: #0b1117;
+  --color-blueprint-slate: #1e293b;
+  --color-drafting-surface: #f8fafc;
+  --color-muted-surface: #f1f5f9;
+
+  --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: var(--font-body), "Inter", system-ui, sans-serif;
+  --font-mono: var(--font-mono), "JetBrains Mono", monospace;
+  --font-arabic: var(--font-arabic), "Cairo", "IBM Plex Sans Arabic", sans-serif;
+}
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
