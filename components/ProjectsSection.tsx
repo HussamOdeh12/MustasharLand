@@ -144,7 +144,7 @@ export default function ProjectsSection() {
                 </span>
                 <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
                   <Link
-                    href="/projects/30-private-villas-abu-dhabi"
+                    href="/projects/30-private-villas"
                     className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                   >
                     {t('Design and Supervision of 30 Private Villas', 'تصميم والإشراف على 30 فيلا خاصة')}
@@ -164,7 +164,7 @@ export default function ProjectsSection() {
               </span>
               <Link
                 className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
-                href="/projects/30-private-villas-abu-dhabi"
+                href="/projects/30-private-villas"
                 aria-label={`${t('View details for', 'تفاصيل مشروع')}: ${t('30 Private Villas', '30 فيلا خاصة')}`}
               >
                 <span>{t('View Details', 'تفاصيل المشروع')}</span>

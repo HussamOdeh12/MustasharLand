@@ -55,7 +55,6 @@ export default function ContactPage() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const inquiryOptions = [
@@ -90,6 +89,25 @@ export default function ContactPage() {
       labelAr: 'تنسيق الحدائق والمساحات الخضراء المستدامة',
     },
   ];
+
+  const buildMailtoUrl = () => {
+    const selectedServiceObj = inquiryOptions.find((opt) => opt.id === formData.service);
+    const serviceLabel = selectedServiceObj
+      ? (isRtl ? selectedServiceObj.labelAr : selectedServiceObj.labelEn)
+      : (formData.service || (isRtl ? 'استفسار عام' : 'General Inquiry'));
+
+    const subject = `Engineering Consultation Inquiry - ${formData.name}${formData.company ? ` (${formData.company})` : ''}`;
+    const body = `Name: ${formData.name}
+Company: ${formData.company || 'N/A'}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service / Inquiry Type: ${serviceLabel}
+
+Message:
+${formData.message}`;
+
+    return `mailto:info@mustasharland.ae?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -127,12 +145,11 @@ export default function ContactPage() {
     e.preventDefault();
     if (!validateForm()) return;
 
-    setIsSubmitting(true);
-    // Simulate professional transmission state
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 700);
+    const mailtoUrl = buildMailtoUrl();
+    if (typeof window !== 'undefined') {
+      window.location.href = mailtoUrl;
+    }
+    setIsSubmitted(true);
   };
 
   const handleReset = () => {
@@ -327,52 +344,65 @@ export default function ContactPage() {
                 <div className="p-8 sm:p-10 lg:p-12 rounded-3xl bg-slate-50/80 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm">
                   {isSubmitted ? (
                     <div className="py-8 text-center space-y-6 animate-fadeIn" id="contact-success-container" role="status" aria-live="polite">
-                      <div className="w-16 h-16 rounded-full bg-[#DCFCE7] dark:bg-[#16A34A]/20 text-[#15803D] dark:text-[#4ADE80] flex items-center justify-center mx-auto">
-                        <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
+                      <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[#16A34A] dark:text-[#4ADE80] flex items-center justify-center mx-auto">
+                        <Mail className="w-8 h-8" aria-hidden="true" />
                       </div>
 
-                      <div className="space-y-2 max-w-md mx-auto">
-                        <h3 className="font-sans text-2xl font-bold text-slate-900 dark:text-white">
-                          {t('Consultation Request Prepared', 'تم تجهيز طلب الاستشارة')}
+                      <div className="space-y-3 max-w-lg mx-auto">
+                        <h3 className="font-sans text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                          {t('Inquiry Prepared for Email', 'تم تجهيز الاستفسار للبريد')}
                         </h3>
-                        <p className="font-body text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-start sm:text-center">
+                          <p className="font-sans text-xs sm:text-sm font-semibold text-amber-900 dark:text-amber-300 leading-relaxed">
+                            {t(
+                              'Your message has not been sent automatically. Please email info@mustasharland.ae or call +971 2 658 8099.',
+                              'لم يتم إرسال رسالتك تلقائياً. يرجى إرسال بريد إلكتروني إلى info@mustasharland.ae أو الاتصال على الرقم +971 2 658 8099.'
+                            )}
+                          </p>
+                        </div>
+                        <p className="font-body text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                           {t(
-                            `Thank you, ${formData.name}. Your inquiry details have been saved. You can transmit them directly via official email draft or call our Abu Dhabi office at +971 2 658 8099.`,
-                            `شكراً لك ${formData.name}. تم تجهيز بيانات طلبك بنجاح. يمكنك إرسالها مباشرة عبر مسودة البريد الرسمي أو الاتصال بمكتبنا في أبوظبي على الرقم +971 2 658 8099.`
+                            `An email draft with your inquiry details has been prepared for ${companyProfile.email}. If your email client did not launch automatically, click the button below or call our Abu Dhabi office directly.`,
+                            `تم إنشاء مسودة بريد إلكتروني بتفاصيل استفسارك موجهة إلى ${companyProfile.email}. إذا لم يفتح برنامج البريد تلقائياً، يرجى النقر على الزر أدناه أو الاتصال بمكتبنا في أبوظبي مباشرة.`
                           )}
                         </p>
                       </div>
 
                       {/* Direct action links */}
-                      <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <a
+                          href={buildMailtoUrl()}
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                          id="contact-open-email-client-btn"
+                        >
+                          <Mail className="w-4 h-4" aria-hidden="true" />
+                          <span>{t('Open Email Client', 'فتح برنامج البريد')}</span>
+                        </a>
+
                         <a
                           href={`tel:${companyProfile.phonePrimary.replace(/\s+/g, '')}`}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-sans text-xs font-bold tracking-wider hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                          id="contact-call-direct-btn"
                         >
                           <Phone className="w-4 h-4" aria-hidden="true" />
                           <span dir="ltr">{companyProfile.phonePrimary}</span>
                         </a>
-
-                        <a
-                          href={`mailto:${companyProfile.email}?subject=${encodeURIComponent(
-                            `Project Inquiry - ${formData.name} (${formData.company || 'Private'})`
-                          )}&body=${encodeURIComponent(
-                            `Name: ${formData.name}\nCompany: ${formData.company}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nMessage:\n${formData.message}`
-                          )}`}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-sans text-xs font-bold tracking-wider hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
-                        >
-                          <Mail className="w-4 h-4" aria-hidden="true" />
-                          <span>{t('Open Email Draft', 'فتح مسودة البريد')}</span>
-                        </a>
                       </div>
 
-                      <div className="pt-4">
+                      <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs">
+                        <button
+                          type="button"
+                          onClick={() => setIsSubmitted(false)}
+                          className="min-h-[44px] px-4 py-2 font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                        >
+                          {t('Edit Form Details', 'تعديل بيانات النموذج')}
+                        </button>
                         <button
                           type="button"
                           onClick={handleReset}
-                          className="min-h-[44px] px-4 py-2 text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                          className="min-h-[44px] px-4 py-2 font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                         >
-                          {t('Send Another Inquiry', 'إرسال استفسار آخر')}
+                          {t('Clear & Start New Inquiry', 'مسح وبدء استفسار جديد')}
                         </button>
                       </div>
                     </div>
@@ -590,21 +620,11 @@ export default function ContactPage() {
                       <div className="pt-2">
                         <button
                           type="submit"
-                          disabled={isSubmitting}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 min-h-[44px] px-8 py-4 rounded-xl bg-[#16A34A] hover:bg-[#15803D] disabled:opacity-60 text-white font-sans text-sm font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 min-h-[44px] px-8 py-4 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-sm font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
                           id="contact-submit-btn"
                         >
-                          {isSubmitting ? (
-                            <>
-                              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" aria-hidden="true" />
-                              <span>{t('Transmitting Request...', 'جارٍ الإرسال...')}</span>
-                            </>
-                          ) : (
-                            <>
-                              <span>{t('Submit Consultation Request', 'إرسال طلب الاستشارة')}</span>
-                              <Send className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
-                            </>
-                          )}
+                          <span>{t('Submit Consultation Request', 'إرسال طلب الاستشارة')}</span>
+                          <Send className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
                         </button>
                       </div>
                     </form>

@@ -1,6 +1,6 @@
 import { companyProfile, ServiceDiscipline } from './content';
 
-export const SITE_URL = 'https://mustasharland.vercel.app';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://mustasharland.vercel.app';
 
 export function getOrganizationSchema() {
   return {

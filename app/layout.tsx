@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Inter, Cairo } from 'next/font/google';
 import './globals.css';
 import { AppProvider } from '@/lib/context';
+import { SITE_URL } from '@/lib/structured-data';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -36,7 +37,7 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mustasharland.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'MUSTASHAR LAND Engineering Consultancy | مستشار لاند للاستشارات الهندسية',
     template: '%s | MUSTASHAR LAND Engineering Consultancy',
@@ -53,12 +54,12 @@ export const metadata: Metadata = {
     'Engineering Consultancy UAE',
   ],
   alternates: {
-    canonical: 'https://mustasharland.vercel.app',
+    canonical: SITE_URL,
   },
   openGraph: {
     title: 'MUSTASHAR LAND Engineering Consultancy | مستشار لاند للاستشارات الهندسية',
     description: 'Premier multidisciplinary engineering consultancy based in Abu Dhabi, UAE. Architectural design, civil & structural engineering, and construction supervision.',
-    url: 'https://mustasharland.vercel.app',
+    url: SITE_URL,
     siteName: 'MUSTASHAR LAND Engineering Consultancy',
     type: 'website',
     locale: 'en_AE',
