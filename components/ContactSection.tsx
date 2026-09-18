@@ -2,11 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useApp } from '@/lib/context';
+import { useLanguage } from '@/lib/context';
 import { ArrowRight, ArrowLeft, Phone } from 'lucide-react';
 
 export default function ContactSection() {
-  const { isRtl, t } = useApp();
+  const { isRtl, t } = useLanguage();
   const ArrowForward = isRtl ? ArrowLeft : ArrowRight;
 
   return (

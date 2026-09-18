@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { useApp } from '@/lib/context';
+import { useLanguage } from '@/lib/context';
 import { ShieldCheck, CheckCircle2, Clock, Leaf } from 'lucide-react';
 
 export default function PillarsSection() {
-  const { t } = useApp();
+  const { t } = useLanguage();
 
   const pillars = [
     {

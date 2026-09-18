@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useApp } from '@/lib/context';
+import { useLanguage } from '@/lib/context';
 import {
   Building2,
   ClipboardCheck,
@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 export default function ServicesSection() {
-  const { isRtl, t } = useApp();
+  const { isRtl, t } = useLanguage();
   const ArrowForward = isRtl ? ArrowLeft : ArrowRight;
   const ChevronForward = isRtl ? ChevronLeft : ChevronRight;
 

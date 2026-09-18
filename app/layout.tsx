@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans, Inter, JetBrains_Mono, Cairo } from 'next/font/google';
+import { Plus_Jakarta_Sans, Inter, Cairo } from 'next/font/google';
 import './globals.css';
 import { AppProvider } from '@/lib/context';
 
@@ -18,28 +18,21 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['500', '600', '700', '800'],
 });
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
 });
 
 const cairo = Cairo({
-  subsets: ['arabic', 'latin'],
+  subsets: ['arabic'],
   variable: '--font-arabic',
   display: 'swap',
-  weight: ['500', '600', '700', '800'],
+  weight: ['600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -93,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`w-full max-w-full overflow-x-hidden ${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable} ${cairo.variable}`}
+      className={`w-full max-w-full overflow-x-hidden ${plusJakarta.variable} ${inter.variable} ${cairo.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -101,34 +94,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: `(function(){
   try {
-    var f = window.fetch;
-    if (f) {
-      var currentFetch = f;
-      try {
-        Object.defineProperty(window, 'fetch', {
-          get: function() { return currentFetch; },
-          set: function(val) { currentFetch = val; },
-          configurable: true,
-          enumerable: true
-        });
-      } catch (err) {}
-    }
-  } catch (e) {}
-
-  try {
-    window.addEventListener('error', function(ev) {
-      if (ev && ev.message && ev.message.indexOf('fetch') !== -1 && ev.message.indexOf('getter') !== -1) {
-        if (ev.preventDefault) ev.preventDefault();
-      }
-    });
-  } catch (e) {}
-
-  try {
     var t = localStorage.getItem('mustasharland-theme');
     if (t === 'dark' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
+    }
+    var l = localStorage.getItem('mustashar_lang');
+    if (l === 'ar') {
+      document.documentElement.setAttribute('dir', 'rtl');
+      document.documentElement.setAttribute('lang', 'ar');
     }
   } catch(e) {}
 })();`,

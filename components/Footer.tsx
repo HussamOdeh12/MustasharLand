@@ -2,11 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useApp } from '@/lib/context';
+import { useLanguage } from '@/lib/context';
 import BrandLogo from './BrandLogo';
 
 export default function Footer() {
-  const { t } = useApp();
+  const { t } = useLanguage();
 
   return (
     <footer

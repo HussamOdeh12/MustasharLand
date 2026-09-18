@@ -3,11 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useApp } from '@/lib/context';
+import { useLanguage } from '@/lib/context';
 import { ArrowRight, ArrowLeft, Landmark, Route } from 'lucide-react';
 
 export default function ProjectsSection() {
-  const { isRtl, t } = useApp();
+  const { isRtl, t } = useLanguage();
   const ArrowForward = isRtl ? ArrowLeft : ArrowRight;
 
   return (

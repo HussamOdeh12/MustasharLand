@@ -1,34 +1,60 @@
 'use client';
 
-import React, { createContext, useContext, useCallback, useEffect, useSyncExternalStore } from 'react';
+import React, { createContext, useContext, useCallback, useEffect, useMemo, useSyncExternalStore } from 'react';
 
 export type Language = 'en' | 'ar';
 export type Theme = 'light' | 'dark';
 
-interface AppContextType {
+export interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   isRtl: boolean;
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-  toggleTheme: () => void;
   t: (en: string, ar: string) => string;
 }
 
-const AppContext = createContext<AppContextType | undefined>(undefined);
-
-const listeners = new Set<() => void>();
-
-function emitChange() {
-  listeners.forEach((listener) => listener());
+export interface ThemeContextType {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+  toggleTheme: () => void;
 }
 
-function subscribe(listener: () => void) {
-  listeners.add(listener);
-  window.addEventListener('storage', listener);
+export type AppContextType = LanguageContextType & ThemeContextType;
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+const langListeners = new Set<() => void>();
+const themeListeners = new Set<() => void>();
+
+function emitLangChange() {
+  langListeners.forEach((listener) => listener());
+}
+
+function emitThemeChange() {
+  themeListeners.forEach((listener) => listener());
+}
+
+function subscribeLang(listener: () => void) {
+  langListeners.add(listener);
+  const handleStorage = (e: StorageEvent) => {
+    if (e.key === 'mustashar_lang') listener();
+  };
+  window.addEventListener('storage', handleStorage);
   return () => {
-    listeners.delete(listener);
-    window.removeEventListener('storage', listener);
+    langListeners.delete(listener);
+    window.removeEventListener('storage', handleStorage);
+  };
+}
+
+function subscribeTheme(listener: () => void) {
+  themeListeners.add(listener);
+  const handleStorage = (e: StorageEvent) => {
+    if (e.key === 'mustasharland-theme') listener();
+  };
+  window.addEventListener('storage', handleStorage);
+  return () => {
+    themeListeners.delete(listener);
+    window.removeEventListener('storage', handleStorage);
   };
 }
 
@@ -68,8 +94,8 @@ function getServerThemeSnapshot(): Theme {
 }
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const language = useSyncExternalStore(subscribe, getLanguageSnapshot, getServerLanguageSnapshot);
-  const theme = useSyncExternalStore(subscribe, getThemeSnapshot, getServerThemeSnapshot);
+  const language = useSyncExternalStore(subscribeLang, getLanguageSnapshot, getServerLanguageSnapshot);
+  const theme = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getServerThemeSnapshot);
 
   const setLanguage = useCallback((lang: Language) => {
     try {
@@ -77,7 +103,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     } catch {
       // ignore
     }
-    emitChange();
+    emitLangChange();
   }, []);
 
   const setTheme = useCallback((newTheme: Theme) => {
@@ -87,7 +113,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     } catch {
       // ignore
     }
-    emitChange();
+    emitThemeChange();
   }, []);
 
   const toggleTheme = useCallback(() => {
@@ -108,34 +134,70 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     if (typeof document !== 'undefined') {
       document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
       document.documentElement.setAttribute('lang', language);
+    }
+  }, [isRtl, language]);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
       document.documentElement.classList.toggle('dark', theme === 'dark');
     }
-  }, [isRtl, language, theme]);
+  }, [theme]);
+
+  const langValue = useMemo(
+    () => ({
+      language,
+      setLanguage,
+      isRtl,
+      t,
+    }),
+    [language, setLanguage, isRtl, t]
+  );
+
+  const themeValue = useMemo(
+    () => ({
+      theme,
+      setTheme,
+      toggleTheme,
+    }),
+    [theme, setTheme, toggleTheme]
+  );
 
   return (
-    <AppContext.Provider
-      value={{
-        language,
-        setLanguage,
-        isRtl,
-        theme,
-        setTheme,
-        toggleTheme,
-        t,
-      }}
-    >
-      <div className={`min-h-screen ${isRtl ? 'font-arabic' : 'font-sans'}`} suppressHydrationWarning>
-        {children}
-      </div>
-    </AppContext.Provider>
+    <ThemeContext.Provider value={themeValue}>
+      <LanguageContext.Provider value={langValue}>
+        <div className={`min-h-screen ${isRtl ? 'font-arabic' : 'font-sans'}`} suppressHydrationWarning>
+          {children}
+        </div>
+      </LanguageContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 
-export function useApp() {
-  const context = useContext(AppContext);
+export function useLanguage() {
+  const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error('useApp must be used within an AppProvider');
+    throw new Error('useLanguage must be used within an AppProvider');
   }
   return context;
+}
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within an AppProvider');
+  }
+  return context;
+}
+
+export function useApp(): AppContextType {
+  const lang = useContext(LanguageContext);
+  const thm = useContext(ThemeContext);
+  if (!lang || !thm) {
+    throw new Error('useApp must be used within an AppProvider');
+  }
+  return {
+    ...lang,
+    ...thm,
+  };
 }
 
