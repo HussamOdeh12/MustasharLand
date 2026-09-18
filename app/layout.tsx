@@ -43,8 +43,12 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: 'MUSTASHAR LAND Engineering Consultancy | مستشار لاند للاستشارات الهندسية',
-  description: 'Multidisciplinary engineering consultancy based in Abu Dhabi, UAE. Delivering architectural design, civil and structural engineering, and construction supervision since 2019.',
+  metadataBase: new URL('https://mustasharland.vercel.app'),
+  title: {
+    default: 'MUSTASHAR LAND Engineering Consultancy | مستشار لاند للاستشارات الهندسية',
+    template: '%s | MUSTASHAR LAND Engineering Consultancy',
+  },
+  description: 'Multidisciplinary engineering consultancy based in Abu Dhabi, UAE. Delivering architectural design, civil & structural engineering, project management, and construction supervision since 2019.',
   keywords: [
     'Mustashar Land',
     'مستشار لاند للاستشارات الهندسية',
@@ -55,17 +59,33 @@ export const metadata: Metadata = {
     'Project Management PMC',
     'Engineering Consultancy UAE',
   ],
+  alternates: {
+    canonical: 'https://mustasharland.vercel.app',
+  },
   openGraph: {
     title: 'MUSTASHAR LAND Engineering Consultancy | مستشار لاند للاستشارات الهندسية',
-    description: 'Premier multidisciplinary engineering consultancy based in Abu Dhabi, UAE.',
+    description: 'Premier multidisciplinary engineering consultancy based in Abu Dhabi, UAE. Architectural design, civil & structural engineering, and construction supervision.',
+    url: 'https://mustasharland.vercel.app',
+    siteName: 'MUSTASHAR LAND Engineering Consultancy',
     type: 'website',
     locale: 'en_AE',
     alternateLocale: 'ar_AE',
+    images: [
+      {
+        url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDuFkUY4xCNoYI8FCW3adHnXZ5nAMTZKu2-Ge6_66zJ9av2vXxrXf9myclbdDoxflpSf62Q5f3bLh-uRLPQm9CarKZdgJTCRVLJCfyJ4oxeemjNa5mPrWNpxM5eDZ1Cw1OeRRCnbm-GqWQIdqWp4kikG37qQA0szUeZDv8ggcqELTmNEO25PzFtN93MfdSFsIXLgjU12gf7czNKeVPVkGCg_N70kJrd_JsOQYMhjKAGpynrpNAcx1cE',
+        width: 1200,
+        height: 630,
+        alt: 'MUSTASHAR LAND Engineering Consultancy Abu Dhabi',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'MUSTASHAR LAND Engineering Consultancy',
     description: 'Premier multidisciplinary engineering consultancy based in Abu Dhabi, UAE.',
+    images: [
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDuFkUY4xCNoYI8FCW3adHnXZ5nAMTZKu2-Ge6_66zJ9av2vXxrXf9myclbdDoxflpSf62Q5f3bLh-uRLPQm9CarKZdgJTCRVLJCfyJ4oxeemjNa5mPrWNpxM5eDZ1Cw1OeRRCnbm-GqWQIdqWp4kikG37qQA0szUeZDv8ggcqELTmNEO25PzFtN93MfdSFsIXLgjU12gf7czNKeVPVkGCg_N70kJrd_JsOQYMhjKAGpynrpNAcx1cE',
+    ],
   },
 };
 
