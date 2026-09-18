@@ -48,21 +48,21 @@ export default function Hero() {
           {/* Two Hero Buttons - Stack on mobile, horizontal on sm+ */}
           <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto max-w-md mx-auto sm:max-w-none">
             <Link
-              className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-lg bg-[#16A34A] text-white font-sans text-sm font-semibold tracking-wide shadow-sm hover:bg-[#15803D] hover:shadow transition-all duration-200 w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center gap-2.5 min-h-[44px] px-6 sm:px-7 py-3 rounded-lg bg-[#16A34A] text-white font-sans text-sm font-semibold tracking-wide shadow-sm hover:bg-[#15803D] hover:shadow transition-all duration-200 w-full sm:w-auto text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
               href="/services"
               id="hero-explore-services-btn"
             >
               <span>{t('Explore Services', 'استكشف خدماتنا')}</span>
-              <ArrowForward className="w-4 h-4 rtl:rotate-180 shrink-0" />
+              <ArrowForward className="w-4 h-4 rtl:rotate-180 shrink-0" aria-hidden="true" />
             </Link>
 
             <Link
-              className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-sans text-sm font-semibold tracking-wide border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200 w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center gap-2.5 min-h-[44px] px-6 sm:px-7 py-3 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-sans text-sm font-semibold tracking-wide border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200 w-full sm:w-auto text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
               href="/projects"
               id="hero-view-projects-btn"
             >
               <span>{t('View Our Projects', 'مشاريعنا الهندسية')}</span>
-              <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0" />
+              <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function Hero() {
         <div className="mt-10 sm:mt-14 lg:mt-20 relative w-full">
           <div className="relative w-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl lg:shadow-2xl shadow-slate-200/80 dark:shadow-none border border-slate-200/80 dark:border-slate-800 bg-slate-900 aspect-[16/10] sm:aspect-[16/9] max-h-[560px]">
             <Image
-              alt="Monumental UAE Civil and Structural Engineering Infrastructure in Abu Dhabi"
+              alt={t('Monumental UAE Civil and Structural Engineering Infrastructure in Abu Dhabi', 'مشاريع البنية التحتية والهندسة الإنشائية في أبوظبي')}
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuFkUY4xCNoYI8FCW3adHnXZ5nAMTZKu2-Ge6_66zJ9av2vXxrXf9myclbdDoxflpSf62Q5f3bLh-uRLPQm9CarKZdgJTCRVLJCfyJ4oxeemjNa5mPrWNpxM5eDZ1Cw1OeRRCnbm-GqWQIdqWp4kikG37qQA0szUeZDv8ggcqELTmNEO25PzFtN93MfdSFsIXLgjU12gf7czNKeVPVkGCg_N70kJrd_JsOQYMhjKAGpynrpNAcx1cE"
               fill
               priority
@@ -100,7 +100,7 @@ export default function Hero() {
             <div className="font-sans text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               2019
             </div>
-            <div className="font-body text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">
+            <div className="font-body text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
               {t('Established in Abu Dhabi', 'تأسست في أبوظبي')}
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function Hero() {
             <div className="font-sans text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#16A34A] tracking-tight">
               100%
             </div>
-            <div className="font-body text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">
+            <div className="font-body text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
               {t('Emirati-Owned & Managed', 'ملكية وإدارة إماراتية 100%')}
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function Hero() {
             <div className="font-sans text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               {t('Multi-Disciplinary', 'تخصصات متكاملة')}
             </div>
-            <div className="font-body text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">
+            <div className="font-body text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
               {t('Engineering Consultancy', 'استشارات هندسية شاملة')}
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function Hero() {
             <div className="font-sans text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               {t('UAE-Based', 'في دولة الإمارات')}
             </div>
-            <div className="font-body text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400">
+            <div className="font-body text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
               {t('Local UAE Experience', 'خبرة محلية بمعايير هندسية')}
             </div>
           </div>

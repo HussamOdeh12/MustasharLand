@@ -50,14 +50,14 @@ export default function ProjectsPage() {
     <div className="min-h-screen flex flex-col justify-between bg-white dark:bg-[#0B1117] transition-colors w-full">
       <Navbar />
 
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
         {/* Breadcrumbs */}
         <div className="border-b border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/40">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3.5 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-            <Link href="/" className="hover:text-[#16A34A] transition-colors">
+            <Link href="/" className="hover:text-[#16A34A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-0.5">
               {t('Home', 'الرئيسية')}
             </Link>
-            <ChevronForward className="w-3.5 h-3.5 text-slate-400" />
+            <ChevronForward className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
             <span className="font-semibold text-slate-900 dark:text-white">
               {t('Projects Portfolio', 'محفظة المشاريع')}
             </span>
@@ -130,7 +130,7 @@ export default function ProjectsPage() {
         <section className="py-16 sm:py-20 bg-white dark:bg-[#0B1117] transition-colors">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-10">
             {/* Category Filter Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" role="tablist" aria-label={t('Filter projects by category', 'تصفية المشاريع حسب الفئة')}>
               {categories.map((cat) => {
                 const active = selectedCategory === cat.id;
                 return (
@@ -138,7 +138,9 @@ export default function ProjectsPage() {
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
                     type="button"
-                    className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    role="tab"
+                    aria-selected={active}
+                    className={`min-h-[44px] px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2 ${
                       active
                         ? 'bg-[#16A34A] text-white shadow-xs'
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -180,13 +182,13 @@ export default function ProjectsPage() {
                     <div className="p-6 sm:p-7 space-y-4">
                       {project.location && (
                         <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
-                          <MapPin className="w-3.5 h-3.5 text-[#16A34A] shrink-0" />
+                          <MapPin className="w-3.5 h-3.5 text-[#16A34A] shrink-0" aria-hidden="true" />
                           <span className="truncate">{t(project.location.en, project.location.ar)}</span>
                         </div>
                       )}
 
                       <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors leading-snug">
-                        <Link href={`/projects/${project.id}`}>
+                        <Link href={`/projects/${project.id}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-0.5">
                           {t(project.title.en, project.title.ar)}
                         </Link>
                       </h3>
@@ -216,10 +218,11 @@ export default function ProjectsPage() {
                     </span>
                     <Link
                       href={`/projects/${project.id}`}
-                      className="inline-flex items-center gap-1.5 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors"
+                      className="inline-flex items-center gap-1.5 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                      aria-label={`${t('View project details for', 'عرض تفاصيل المشروع')} ${t(project.title.en, project.title.ar)}`}
                     >
                       <span>{t('View Project Details', 'تفاصيل المشروع')}</span>
-                      <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
+                      <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>
@@ -234,7 +237,7 @@ export default function ProjectsPage() {
             <div className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-8 sm:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
               <div className="space-y-3 max-w-2xl">
                 <div className="inline-flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-[#16A34A]" />
+                  <ShieldCheck className="w-4 h-4 text-[#16A34A]" aria-hidden="true" />
                   <span className="font-sans text-xs font-bold text-[#16A34A] uppercase tracking-wider">
                     {t('Direct Engineering Consultation', 'استشارة هندسية مباشرة')}
                   </span>
@@ -256,14 +259,16 @@ export default function ProjectsPage() {
               <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full lg:w-auto">
                 <a
                   href={`tel:${companyProfile.phonePrimary.replace(/\s+/g, '')}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors shadow-xs"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                  aria-label={`${t('Call telephone number', 'اتصل برقم الهاتف')} ${companyProfile.phonePrimary}`}
                 >
-                  <PhoneCall className="w-4 h-4" />
+                  <PhoneCall className="w-4 h-4" aria-hidden="true" />
                   <span>{companyProfile.phonePrimary}</span>
                 </a>
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-sans text-xs font-bold tracking-wider transition-colors"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-sans text-xs font-bold tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                  aria-label={t('Submit inquiry on our contact page', 'إرسال استفسار عبر صفحة التواصل')}
                 >
                   <span>{t('Submit Inquiry', 'إرسال استفسار')}</span>
                 </Link>

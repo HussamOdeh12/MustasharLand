@@ -107,11 +107,12 @@ export default function ServicesSection() {
             </h2>
           </div>
           <Link
-            className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors self-start md:self-auto"
+            className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors self-start md:self-auto min-h-[44px] px-2 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-md"
             href="/services"
+            aria-label={t('View all engineering services and disciplines', 'استعراض كافة الخدمات والتخصصات الهندسية')}
           >
             <span>{t('View All Services', 'استعراض كافة الخدمات')}</span>
-            <ArrowForward className="w-4 h-4 rtl:rotate-180" />
+            <ArrowForward className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
           </Link>
         </div>
 
@@ -119,6 +120,7 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full">
           {disciplines.map((disc, idx) => {
             const Icon = disc.icon;
+            const title = t(disc.titleEn, disc.titleAr);
             return (
               <div
                 key={idx}
@@ -126,11 +128,14 @@ export default function ServicesSection() {
               >
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-200 group-hover:text-[#16A34A] group-hover:border-[#16A34A]/30 transition-colors">
-                    <Icon className="w-6 h-6" />
+                    <Icon className="w-6 h-6" aria-hidden="true" />
                   </div>
                   <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
-                    <Link href={`/services/${disc.id}`}>
-                      {t(disc.titleEn, disc.titleAr)}
+                    <Link
+                      href={`/services/${disc.id}`}
+                      className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                    >
+                      {title}
                     </Link>
                   </h3>
                   <p className="font-body text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -140,10 +145,11 @@ export default function ServicesSection() {
                 <div className="pt-6 mt-6 border-t border-slate-200/60 dark:border-slate-800">
                   <Link
                     href={`/services/${disc.id}`}
-                    className="font-sans text-xs font-bold text-[#16A34A] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform inline-flex items-center gap-1"
+                    aria-label={`${t('Read details for', 'تفاصيل تخصص')}: ${title}`}
+                    className="font-sans text-xs font-bold text-[#16A34A] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform inline-flex items-center gap-1 min-h-[44px] py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                   >
                     <span>{t('READ DISCIPLINE', 'تفاصيل التخصص')}</span>
-                    <ChevronForward className="w-3.5 h-3.5" />
+                    <ChevronForward className="w-3.5 h-3.5" aria-hidden="true" />
                   </Link>
                 </div>
               </div>

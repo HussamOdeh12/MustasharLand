@@ -12,15 +12,17 @@ import Footer from '@/components/Footer';
 
 export default function HomePage() {
   return (
-    <main className="relative w-full max-w-full min-h-screen overflow-x-hidden bg-[#F8FAFC]/50 dark:bg-[#0B1117] text-slate-800 dark:text-slate-200 flex flex-col antialiased transition-colors duration-200">
+    <div className="relative w-full max-w-full min-h-screen overflow-x-hidden bg-[#F8FAFC]/50 dark:bg-[#0B1117] text-slate-800 dark:text-slate-200 flex flex-col antialiased transition-colors duration-200">
       <Navbar />
-      <Hero />
-      <AboutSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <PillarsSection />
-      <ContactSection />
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+        <Hero />
+        <AboutSection />
+        <ServicesSection />
+        <ProjectsSection />
+        <PillarsSection />
+        <ContactSection />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

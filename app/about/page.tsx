@@ -182,16 +182,16 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="relative w-full max-w-full min-h-screen overflow-x-hidden bg-[#F8FAFC]/50 dark:bg-[#0B1117] text-slate-800 dark:text-slate-200 flex flex-col antialiased transition-colors duration-200">
+    <main id="main-content" tabIndex={-1} className="relative w-full max-w-full min-h-screen overflow-x-hidden bg-[#F8FAFC]/50 dark:bg-[#0B1117] text-slate-800 dark:text-slate-200 flex flex-col antialiased transition-colors duration-200 outline-none">
       <Navbar />
 
       {/* Breadcrumbs */}
       <div className="border-b border-slate-200/80 dark:border-slate-800 bg-white/70 dark:bg-[#0B1117]/70 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3.5 flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
-          <Link href="/" className="hover:text-[#16A34A] transition-colors">
+          <Link href="/" className="hover:text-[#16A34A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-0.5">
             {t('Home', 'الرئيسية')}
           </Link>
-          <BreadcrumbSep className="w-3 h-3 text-slate-400 rtl:rotate-180" />
+          <BreadcrumbSep className="w-3 h-3 text-slate-400 rtl:rotate-180" aria-hidden="true" />
           <span className="text-slate-900 dark:text-white font-semibold">
             {t('About Us', 'من نحن')}
           </span>
@@ -207,7 +207,7 @@ export default function AboutPage() {
           {/* Eyebrow & Hero Header */}
           <div className="max-w-4xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#DCFCE7] dark:bg-[#16A34A]/20 border border-[#86EFAC] dark:border-[#16A34A]/40 text-[#15803D] dark:text-[#4ADE80] font-sans text-xs font-semibold uppercase tracking-wider">
-              <Landmark className="w-3.5 h-3.5" />
+              <Landmark className="w-3.5 h-3.5" aria-hidden="true" />
               <span>{t('ABOUT MUSTASHAR LAND • EST. 2019', 'نبذة عن مستشار لاند • تأسست عام 2019')}</span>
             </div>
 
@@ -552,10 +552,11 @@ export default function AboutPage() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-semibold tracking-wider uppercase transition-colors shrink-0"
+                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-lg bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-semibold tracking-wider uppercase transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                aria-label={t('Initiate Project Consultation on our contact page', 'طلب استشارة هندسية عبر صفحة التواصل')}
               >
                 <span>{t('Initiate Project Consultation', 'طلب استشارة هندسية')}</span>
-                <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
+                <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>
 
@@ -563,7 +564,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-slate-400">
-                  <MapPin className="w-4 h-4 text-[#16A34A]" />
+                  <MapPin className="w-4 h-4 text-[#16A34A]" aria-hidden="true" />
                   <span className="font-sans text-xs uppercase tracking-wider font-semibold">
                     {t('Headquarters Address', 'العنوان والمقر')}
                   </span>
@@ -578,14 +579,18 @@ export default function AboutPage() {
 
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-slate-400">
-                  <Phone className="w-4 h-4 text-[#16A34A]" />
+                  <Phone className="w-4 h-4 text-[#16A34A]" aria-hidden="true" />
                   <span className="font-sans text-xs uppercase tracking-wider font-semibold">
                     {t('Direct Telephone', 'هاتف التواصل')}
                   </span>
                 </div>
-                <p className="font-semibold text-slate-800 dark:text-slate-200 text-xs sm:text-sm dir-ltr">
+                <a
+                  href="tel:+97126588099"
+                  className="font-semibold text-slate-800 dark:text-slate-200 hover:text-[#16A34A] dark:hover:text-[#4ADE80] text-xs sm:text-sm dir-ltr inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-1 min-h-[44px] flex items-center"
+                  aria-label={t('Call office directly at +971 2 658 8099', 'اتصل بالمكتب على الرقم +971 2 658 8099')}
+                >
                   +971 2 658 8099
-                </p>
+                </a>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400">
                   {t('Official UAE Contact Number', 'رقم الهاتف الرسمي المعتمد')}
                 </p>
@@ -593,14 +598,18 @@ export default function AboutPage() {
 
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-slate-400">
-                  <Mail className="w-4 h-4 text-[#16A34A]" />
+                  <Mail className="w-4 h-4 text-[#16A34A]" aria-hidden="true" />
                   <span className="font-sans text-xs uppercase tracking-wider font-semibold">
                     {t('Official Email', 'البريد الإلكتروني')}
                   </span>
                 </div>
-                <p className="font-semibold text-slate-800 dark:text-slate-200 text-xs sm:text-sm">
+                <a
+                  href="mailto:info@mustasharland.ae"
+                  className="font-semibold text-slate-800 dark:text-slate-200 hover:text-[#16A34A] dark:hover:text-[#4ADE80] text-xs sm:text-sm inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-1 min-h-[44px] flex items-center"
+                  aria-label={t('Send email to info@mustasharland.ae', 'إرسال بريد إلكتروني إلى info@mustasharland.ae')}
+                >
                   info@mustasharland.ae
-                </p>
+                </a>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400">
                   {t('General & Project Inquiries', 'المراسلات العامة واستشارات المشاريع')}
                 </p>
@@ -608,7 +617,7 @@ export default function AboutPage() {
 
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-slate-400">
-                  <Building2 className="w-4 h-4 text-[#16A34A]" />
+                  <Building2 className="w-4 h-4 text-[#16A34A]" aria-hidden="true" />
                   <span className="font-sans text-xs uppercase tracking-wider font-semibold">
                     {t('Corporate Identity', 'البيانات المؤسسية')}
                   </span>

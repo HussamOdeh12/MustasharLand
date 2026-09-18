@@ -153,17 +153,17 @@ export default function ContactPage() {
       <Navbar />
 
       <main className="flex-grow pt-24 sm:pt-28 pb-20">
-        {/* Breadcrumb Bar */}
+          {/* Breadcrumb Bar */}
         <div className="border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-[#0F172A]/40">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3.5 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
             <Link
               href="/"
-              className="hover:text-[#16A34A] transition-colors"
+              className="hover:text-[#16A34A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-1 px-0.5"
               id="breadcrumb-home"
             >
               {t('Home', 'الرئيسية')}
             </Link>
-            <ChevronIcon className="w-3.5 h-3.5 text-slate-400" />
+            <ChevronIcon className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
             <span className="font-semibold text-slate-900 dark:text-white">
               {t('Contact Us', 'اتصل بنا')}
             </span>
@@ -175,7 +175,7 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#DCFCE7] dark:bg-[#16A34A]/20 text-[#15803D] dark:text-[#4ADE80] text-xs font-bold tracking-wide">
-                <Building2 className="w-3.5 h-3.5" />
+                <Building2 className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>{t('Corporate Engineering Office', 'المكتب الهندسي الرئيسي')}</span>
               </div>
 
@@ -206,7 +206,7 @@ export default function ContactPage() {
                 <div className="p-7 sm:p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-6">
                   <div className="space-y-2">
                     <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#16A34A]/10 text-[#16A34A] text-xs font-bold">
-                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
                       <span>{t('100% Emirati-Owned & Managed', 'ملكية وإدارة إماراتية 100%')}</span>
                     </div>
                     <h2 className="font-sans text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
@@ -225,10 +225,10 @@ export default function ContactPage() {
                     {/* Location */}
                     <div className="flex items-start gap-3.5">
                       <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-[#16A34A] shrink-0">
-                        <MapPin className="w-5 h-5" />
+                        <MapPin className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div className="space-y-0.5">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
                           {t('Location & Post Office', 'الموقع وصندوق البريد')}
                         </span>
                         <span className="text-sm font-semibold text-slate-900 dark:text-white block">
@@ -243,17 +243,18 @@ export default function ContactPage() {
                     {/* Telephone */}
                     <div className="flex items-start gap-3.5">
                       <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-[#16A34A] shrink-0">
-                        <Phone className="w-5 h-5" />
+                        <Phone className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div className="space-y-0.5">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
                           {t('Direct Telephone', 'الهاتف المباشر')}
                         </span>
                         <a
                           href={`tel:${companyProfile.phonePrimary.replace(/\s+/g, '')}`}
-                          className="text-sm font-semibold text-slate-900 dark:text-white hover:text-[#16A34A] dark:hover:text-[#4ADE80] transition-colors block font-mono"
+                          className="text-sm font-semibold text-slate-900 dark:text-white hover:text-[#16A34A] dark:hover:text-[#4ADE80] transition-colors inline-block font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-1 min-h-[44px] flex items-center"
                           dir="ltr"
                           id="contact-phone-link"
+                          aria-label={t('Call our Abu Dhabi office directly at +971 2 658 8099', 'اتصل بمكتبنا في أبوظبي على الرقم +971 2 658 8099')}
                         >
                           {companyProfile.phonePrimary}
                         </a>
@@ -266,16 +267,17 @@ export default function ContactPage() {
                     {/* Email */}
                     <div className="flex items-start gap-3.5">
                       <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 flex items-center justify-center text-[#16A34A] shrink-0">
-                        <Mail className="w-5 h-5" />
+                        <Mail className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div className="space-y-0.5">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
                           {t('Inquiries & Technical Proposals', 'البريد الإلكتروني')}
                         </span>
                         <a
                           href={`mailto:${companyProfile.email}`}
-                          className="text-sm font-semibold text-slate-900 dark:text-white hover:text-[#16A34A] dark:hover:text-[#4ADE80] transition-colors block font-mono"
+                          className="text-sm font-semibold text-slate-900 dark:text-white hover:text-[#16A34A] dark:hover:text-[#4ADE80] transition-colors inline-block font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-1 min-h-[44px] flex items-center"
                           id="contact-email-link"
+                          aria-label={t('Send email to info@mustasharland.ae', 'إرسال بريد إلكتروني إلى info@mustasharland.ae')}
                         >
                           {companyProfile.email}
                         </a>
@@ -290,7 +292,7 @@ export default function ContactPage() {
                 {/* Consultation Advisory Card */}
                 <div className="p-7 rounded-3xl bg-slate-900 text-white space-y-4">
                   <div className="flex items-center gap-2 text-[#4ADE80]">
-                    <Briefcase className="w-4 h-4" />
+                    <Briefcase className="w-4 h-4" aria-hidden="true" />
                     <span className="font-sans text-xs font-bold uppercase tracking-wider">
                       {t('Engineering Advisory', 'الاستشارات الهندسية')}
                     </span>
@@ -310,11 +312,11 @@ export default function ContactPage() {
                   <div className="pt-2">
                     <Link
                       href="/services"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-[#4ADE80] hover:underline"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[#4ADE80] hover:underline min-h-[44px] py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                       id="contact-explore-services-link"
                     >
                       <span>{t('Explore Engineering Disciplines', 'استعراض التخصصات الهندسية')}</span>
-                      <ArrowIcon className="w-3.5 h-3.5" />
+                      <ArrowIcon className="w-3.5 h-3.5" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>
@@ -324,19 +326,19 @@ export default function ContactPage() {
               <div className="lg:col-span-7">
                 <div className="p-8 sm:p-10 lg:p-12 rounded-3xl bg-slate-50/80 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm">
                   {isSubmitted ? (
-                    <div className="py-8 text-center space-y-6 animate-fadeIn" id="contact-success-container">
+                    <div className="py-8 text-center space-y-6 animate-fadeIn" id="contact-success-container" role="status" aria-live="polite">
                       <div className="w-16 h-16 rounded-full bg-[#DCFCE7] dark:bg-[#16A34A]/20 text-[#15803D] dark:text-[#4ADE80] flex items-center justify-center mx-auto">
-                        <CheckCircle2 className="w-8 h-8" />
+                        <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
                       </div>
 
                       <div className="space-y-2 max-w-md mx-auto">
                         <h3 className="font-sans text-2xl font-bold text-slate-900 dark:text-white">
-                          {t('Consultation Request Prepared', 'تم استلام طلب الاستشارة')}
+                          {t('Consultation Request Prepared', 'تم تجهيز طلب الاستشارة')}
                         </h3>
                         <p className="font-body text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                           {t(
-                            `Thank you, ${formData.name}. Your inquiry has been documented. For immediate correspondence or urgent project briefs, you can also reach our Abu Dhabi office directly.`,
-                            `شكراً لك ${formData.name}. تم تسجيل طلب الاستشارة بنجاح. للمتابعة العاجلة ومناقشة تفاصيل المشروع، يسعدنا تواصلك المباشر مع مكتبنا في أبوظبي.`
+                            `Thank you, ${formData.name}. Your inquiry details have been saved. You can transmit them directly via official email draft or call our Abu Dhabi office at +971 2 658 8099.`,
+                            `شكراً لك ${formData.name}. تم تجهيز بيانات طلبك بنجاح. يمكنك إرسالها مباشرة عبر مسودة البريد الرسمي أو الاتصال بمكتبنا في أبوظبي على الرقم +971 2 658 8099.`
                           )}
                         </p>
                       </div>
@@ -345,9 +347,9 @@ export default function ContactPage() {
                       <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                         <a
                           href={`tel:${companyProfile.phonePrimary.replace(/\s+/g, '')}`}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-bold uppercase tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
                         >
-                          <Phone className="w-4 h-4" />
+                          <Phone className="w-4 h-4" aria-hidden="true" />
                           <span dir="ltr">{companyProfile.phonePrimary}</span>
                         </a>
 
@@ -357,9 +359,9 @@ export default function ContactPage() {
                           )}&body=${encodeURIComponent(
                             `Name: ${formData.name}\nCompany: ${formData.company}\nPhone: ${formData.phone}\nService: ${formData.service}\n\nMessage:\n${formData.message}`
                           )}`}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-sans text-xs font-bold tracking-wider hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-sans text-xs font-bold tracking-wider hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
                         >
-                          <Mail className="w-4 h-4" />
+                          <Mail className="w-4 h-4" aria-hidden="true" />
                           <span>{t('Open Email Draft', 'فتح مسودة البريد')}</span>
                         </a>
                       </div>
@@ -368,14 +370,14 @@ export default function ContactPage() {
                         <button
                           type="button"
                           onClick={handleReset}
-                          className="text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white underline cursor-pointer"
+                          className="min-h-[44px] px-4 py-2 text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white underline cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                         >
                           {t('Send Another Inquiry', 'إرسال استفسار آخر')}
                         </button>
                       </div>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} noValidate className="space-y-6" id="contact-inquiry-form">
+                    <form onSubmit={handleSubmit} noValidate className="space-y-6" id="contact-inquiry-form" aria-label={t('Consultation Request Form', 'نموذج طلب استشارة هندسية')}>
                       <div className="space-y-1.5">
                         <h3 className="font-sans text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                           {t('Project Consultation Request', 'طلب استشارة هندسية')}
@@ -400,21 +402,26 @@ export default function ContactPage() {
                           <input
                             id="contact-name"
                             type="text"
+                            autoComplete="name"
+                            required
+                            aria-required="true"
+                            aria-invalid={errors.name ? 'true' : 'false'}
+                            aria-describedby={errors.name ? 'contact-name-error' : undefined}
                             value={formData.name}
                             onChange={(e) => {
                               setFormData({ ...formData, name: e.target.value });
                               if (errors.name) setErrors({ ...errors, name: undefined });
                             }}
                             placeholder={t('e.g. Eng. Khalid Al Mansoori', 'مثال: م. خالد المنصوري')}
-                            className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all ${
+                            className={`w-full min-h-[44px] px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all ${
                               errors.name
                                 ? 'border-red-500 dark:border-red-500'
                                 : 'border-slate-200 dark:border-slate-700'
                             }`}
                           />
                           {errors.name && (
-                            <p className="text-xs text-red-500 flex items-center gap-1 mt-1">
-                              <AlertCircle className="w-3 h-3 shrink-0" />
+                            <p id="contact-name-error" role="alert" className="text-xs text-red-500 flex items-center gap-1 mt-1">
+                              <AlertCircle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                               <span>{errors.name}</span>
                             </p>
                           )}
@@ -427,17 +434,18 @@ export default function ContactPage() {
                             className="font-sans text-xs font-bold text-slate-700 dark:text-slate-300"
                           >
                             <span>{t('Company / Organization', 'الجهة / الشركة')}</span>
-                            <span className="text-[11px] font-normal text-slate-400 mx-1">
+                            <span className="text-[11px] font-normal text-slate-500 dark:text-slate-400 mx-1">
                               ({t('Optional', 'اختياري')})
                             </span>
                           </label>
                           <input
                             id="contact-company"
                             type="text"
+                            autoComplete="organization"
                             value={formData.company}
                             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                             placeholder={t('e.g. Development Co. / Private Client', 'مثال: شركة تطوير / عميل فردي')}
-                            className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
+                            className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
                           />
                         </div>
 
@@ -452,21 +460,26 @@ export default function ContactPage() {
                           <input
                             id="contact-email"
                             type="email"
+                            autoComplete="email"
+                            required
+                            aria-required="true"
+                            aria-invalid={errors.email ? 'true' : 'false'}
+                            aria-describedby={errors.email ? 'contact-email-error' : undefined}
                             value={formData.email}
                             onChange={(e) => {
                               setFormData({ ...formData, email: e.target.value });
                               if (errors.email) setErrors({ ...errors, email: undefined });
                             }}
                             placeholder={t('name@example.com', 'name@example.com')}
-                            className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all ${
+                            className={`w-full min-h-[44px] px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all ${
                               errors.email
                                 ? 'border-red-500 dark:border-red-500'
                                 : 'border-slate-200 dark:border-slate-700'
                             }`}
                           />
                           {errors.email && (
-                            <p className="text-xs text-red-500 flex items-center gap-1 mt-1">
-                              <AlertCircle className="w-3 h-3 shrink-0" />
+                            <p id="contact-email-error" role="alert" className="text-xs text-red-500 flex items-center gap-1 mt-1">
+                              <AlertCircle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                               <span>{errors.email}</span>
                             </p>
                           )}
@@ -483,13 +496,18 @@ export default function ContactPage() {
                           <input
                             id="contact-phone"
                             type="tel"
+                            autoComplete="tel"
+                            required
+                            aria-required="true"
+                            aria-invalid={errors.phone ? 'true' : 'false'}
+                            aria-describedby={errors.phone ? 'contact-phone-error' : undefined}
                             value={formData.phone}
                             onChange={(e) => {
                               setFormData({ ...formData, phone: e.target.value });
                               if (errors.phone) setErrors({ ...errors, phone: undefined });
                             }}
                             placeholder={t('+971 50 000 0000', '+971 50 000 0000')}
-                            className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all ${
+                            className={`w-full min-h-[44px] px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all ${
                               errors.phone
                                 ? 'border-red-500 dark:border-red-500'
                                 : 'border-slate-200 dark:border-slate-700'
@@ -497,8 +515,8 @@ export default function ContactPage() {
                             dir="ltr"
                           />
                           {errors.phone && (
-                            <p className="text-xs text-red-500 flex items-center gap-1 mt-1">
-                              <AlertCircle className="w-3 h-3 shrink-0" />
+                            <p id="contact-phone-error" role="alert" className="text-xs text-red-500 flex items-center gap-1 mt-1">
+                              <AlertCircle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                               <span>{errors.phone}</span>
                             </p>
                           )}
@@ -517,7 +535,7 @@ export default function ContactPage() {
                           id="contact-service"
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
+                          className="w-full min-h-[44px] px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all cursor-pointer"
                         >
                           <option value="">
                             {t('Select an Engineering Discipline or General Inquiry', 'اختر التخصص الهندسي أو استفسار عام')}
@@ -541,6 +559,10 @@ export default function ContactPage() {
                         <textarea
                           id="contact-message"
                           rows={5}
+                          required
+                          aria-required="true"
+                          aria-invalid={errors.message ? 'true' : 'false'}
+                          aria-describedby={errors.message ? 'contact-message-error' : undefined}
                           value={formData.message}
                           onChange={(e) => {
                             setFormData({ ...formData, message: e.target.value });
@@ -557,8 +579,8 @@ export default function ContactPage() {
                           }`}
                         />
                         {errors.message && (
-                          <p className="text-xs text-red-500 flex items-center gap-1 mt-1">
-                            <AlertCircle className="w-3 h-3 shrink-0" />
+                          <p id="contact-message-error" role="alert" className="text-xs text-red-500 flex items-center gap-1 mt-1">
+                            <AlertCircle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                             <span>{errors.message}</span>
                           </p>
                         )}
@@ -569,18 +591,18 @@ export default function ContactPage() {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#16A34A] hover:bg-[#15803D] disabled:opacity-60 text-white font-sans text-sm font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 min-h-[44px] px-8 py-4 rounded-xl bg-[#16A34A] hover:bg-[#15803D] disabled:opacity-60 text-white font-sans text-sm font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
                           id="contact-submit-btn"
                         >
                           {isSubmitting ? (
                             <>
-                              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" aria-hidden="true" />
                               <span>{t('Transmitting Request...', 'جارٍ الإرسال...')}</span>
                             </>
                           ) : (
                             <>
                               <span>{t('Submit Consultation Request', 'إرسال طلب الاستشارة')}</span>
-                              <Send className="w-4 h-4 rtl:rotate-180" />
+                              <Send className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
                             </>
                           )}
                         </button>

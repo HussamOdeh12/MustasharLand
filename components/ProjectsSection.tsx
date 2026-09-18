@@ -41,10 +41,11 @@ export default function ProjectsSection() {
 
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-sans text-xs font-bold uppercase tracking-wider hover:border-[#16A34A] hover:text-[#16A34A] transition-colors shrink-0"
+            className="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-sans text-xs font-bold uppercase tracking-wider hover:border-[#16A34A] hover:text-[#16A34A] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A]"
+            aria-label={t('Explore all engineering projects and credentials', 'استكشف كافة المشاريع والسجلات الهندسية')}
           >
             <span>{t('View All Projects', 'كافة المشاريع')}</span>
-            <ArrowForward className="w-4 h-4 rtl:rotate-180" />
+            <ArrowForward className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
           </Link>
         </div>
 
@@ -54,7 +55,7 @@ export default function ProjectsSection() {
           <div className="md:col-span-12 rounded-2xl sm:rounded-3xl overflow-hidden bg-white dark:bg-[#0B1117] border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group flex flex-col lg:flex-row w-full">
             <div className="lg:w-7/12 relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-slate-950 min-h-[260px] sm:min-h-[300px]">
               <Image
-                alt="Development work for Mohammed bin Zayed Stadium (Al Jazira Club)"
+                alt={t('Development work for Mohammed bin Zayed Stadium at Al Jazira Club in Abu Dhabi', 'أعمال تطوير استاد محمد بن زايد بنادي الجزيرة في أبوظبي')}
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIWF1ECqleHA1MmG-DHM-vcxIPYJ9nSG5iDQfKZiVZ9-rTWgtszlk609L62AXsmr69ThedGKOw9IHQzk4THTuxs4bixc9B22zpHu7gEz6KbrOYsOBQapQBo2zFi40b00F7WgWk8tKusXoTLPuTkfXazk0roO4eRktgZ-z8vlRvonJ_8fJqCWCsQ73A4RIkG3FF94cqeMPMfsTwAvAJX9pmGXasjkQPsTx1rNHm2Ce5n9mhbeakcDjl"
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
@@ -70,14 +71,19 @@ export default function ProjectsSection() {
 
             <div className="lg:w-5/12 p-6 sm:p-8 lg:p-12 flex flex-col justify-between space-y-6">
               <div className="space-y-4">
-                <span className="font-sans text-xs uppercase tracking-widest text-slate-400 font-bold block">
+                <span className="font-sans text-xs uppercase tracking-widest text-slate-600 dark:text-slate-400 font-bold block">
                   {t('Abu Dhabi • Al Jazira Club', 'أبوظبي • نادي الجزيرة')}
                 </span>
                 <h3 className="font-sans text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white leading-snug">
-                  {t(
-                    'Development Work for Mohammed bin Zayed Stadium (Al Jazira Club)',
-                    'أعمال تطوير استاد محمد بن زايد (نادي الجزيرة)'
-                  )}
+                  <Link
+                    href="/projects/mohammed-bin-zayed-stadium"
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm hover:text-[#16A34A] transition-colors"
+                  >
+                    {t(
+                      'Development Work for Mohammed bin Zayed Stadium (Al Jazira Club)',
+                      'أعمال تطوير استاد محمد بن زايد (نادي الجزيرة)'
+                    )}
+                  </Link>
                 </h3>
                 <p className="font-body text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                   {t(
@@ -99,15 +105,16 @@ export default function ProjectsSection() {
               </div>
 
               <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                <span className="font-sans text-xs font-semibold text-slate-400">
+                <span className="font-sans text-xs font-semibold text-slate-600 dark:text-slate-400">
                   {t('Sports Facility', 'منشأة رياضية')}
                 </span>
                 <Link
-                  className="inline-flex items-center gap-1 font-sans text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors"
+                  className="inline-flex items-center gap-1 font-sans text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                   href="/projects/mohammed-bin-zayed-stadium"
+                  aria-label={`${t('View Case Study for', 'عرض تفاصيل مشروع')}: ${t('Mohammed bin Zayed Stadium', 'استاد محمد بن زايد')}`}
                 >
                   <span>{t('View Case Study', 'عرض تفاصيل المشروع')}</span>
-                  <ArrowForward className="w-4 h-4 rtl:rotate-180" />
+                  <ArrowForward className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -132,11 +139,14 @@ export default function ProjectsSection() {
                 </div>
               </div>
               <div className="p-6 sm:p-8 space-y-3">
-                <span className="font-sans text-xs uppercase tracking-widest text-slate-400 font-bold block">
+                <span className="font-sans text-xs uppercase tracking-widest text-slate-600 dark:text-slate-400 font-bold block">
                   {t('Abu Dhabi Residential', 'مشاريع سكنية في أبوظبي')}
                 </span>
                 <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
-                  <Link href="/projects/30-private-villas-abu-dhabi">
+                  <Link
+                    href="/projects/30-private-villas-abu-dhabi"
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                  >
                     {t('Design and Supervision of 30 Private Villas', 'تصميم والإشراف على 30 فيلا خاصة')}
                   </Link>
                 </h3>
@@ -149,15 +159,16 @@ export default function ProjectsSection() {
               </div>
             </div>
             <div className="p-6 sm:p-8 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-4">
-              <span className="font-sans text-xs font-semibold text-slate-400">
+              <span className="font-sans text-xs font-semibold text-slate-600 dark:text-slate-400">
                 {t('Residential Typology', 'قطاع سكني')}
               </span>
               <Link
-                className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors"
+                className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                 href="/projects/30-private-villas-abu-dhabi"
+                aria-label={`${t('View details for', 'تفاصيل مشروع')}: ${t('30 Private Villas', '30 فيلا خاصة')}`}
               >
                 <span>{t('View Details', 'تفاصيل المشروع')}</span>
-                <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
+                <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -166,13 +177,16 @@ export default function ProjectsSection() {
           <div className="md:col-span-4 rounded-3xl overflow-hidden bg-white dark:bg-[#0B1117] border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between">
             <div className="p-6 sm:p-8 space-y-4">
               <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[#16A34A]">
-                <Landmark className="w-6 h-6" />
+                <Landmark className="w-6 h-6" aria-hidden="true" />
               </div>
-              <span className="font-sans text-xs uppercase tracking-widest text-slate-400 font-bold block">
+              <span className="font-sans text-xs uppercase tracking-widest text-slate-600 dark:text-slate-400 font-bold block">
                 {t('Call Center 800850 • Municipalities', 'مركز الاتصال 800850 • البلديات')}
               </span>
               <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
-                <Link href="/projects/mep-enoc-callcenter-800850">
+                <Link
+                  href="/projects/mep-enoc-callcenter-800850"
+                  className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                >
                   {t(
                     'Technical Support for MEP & eNOC Systems',
                     'خدمات الدعم الفني لأنظمة MEP و eNOC'
@@ -187,29 +201,30 @@ export default function ProjectsSection() {
               </p>
               <ul className="space-y-2 pt-2 text-xs font-medium text-slate-600 dark:text-slate-400">
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" aria-hidden="true" />
                   <span>{t('Abu Dhabi City Municipality', 'بلدية مدينة أبوظبي')}</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" aria-hidden="true" />
                   <span>{t('Al Ain City Municipality', 'بلدية مدينة العين')}</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" aria-hidden="true" />
                   <span>{t('Al Dhafra Western Region Municipality', 'بلدية منطقة الظفرة')}</span>
                 </li>
               </ul>
             </div>
             <div className="p-6 sm:p-8 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-4">
-              <span className="font-sans text-xs font-semibold text-slate-400">
+              <span className="font-sans text-xs font-semibold text-slate-600 dark:text-slate-400">
                 {t('Technical Support Services', 'خدمات دعم فني')}
               </span>
               <Link
-                className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors"
+                className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                 href="/projects/mep-enoc-callcenter-800850"
+                aria-label={`${t('Learn more about', 'تفاصيل مشروع')}: ${t('Technical Support for MEP & eNOC Systems', 'الدعم الفني لأنظمة MEP و eNOC')}`}
               >
                 <span>{t('Learn More', 'المزيد من التفاصيل')}</span>
-                <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
+                <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -218,13 +233,16 @@ export default function ProjectsSection() {
           <div className="md:col-span-4 rounded-3xl overflow-hidden bg-white dark:bg-[#0B1117] border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between">
             <div className="p-6 sm:p-8 space-y-4">
               <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[#16A34A]">
-                <Route className="w-6 h-6" />
+                <Route className="w-6 h-6" aria-hidden="true" />
               </div>
-              <span className="font-sans text-xs uppercase tracking-widest text-slate-400 font-bold block">
+              <span className="font-sans text-xs uppercase tracking-widest text-slate-600 dark:text-slate-400 font-bold block">
                 {t('Roads & Infrastructure', 'الطرق والبنية التحتية')}
               </span>
               <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
-                <Link href="/projects/sharjah-roads-infrastructure">
+                <Link
+                  href="/projects/sharjah-roads-infrastructure"
+                  className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                >
                   {t(
                     'Sharjah Roads & Infrastructure',
                     'طرق وبنية تحتية في الشارقة'
@@ -247,15 +265,16 @@ export default function ProjectsSection() {
               </div>
             </div>
             <div className="p-6 sm:p-8 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-4">
-              <span className="font-sans text-xs font-semibold text-slate-400">
+              <span className="font-sans text-xs font-semibold text-slate-600 dark:text-slate-400">
                 {t('Infrastructure', 'بنية تحتية')}
               </span>
               <Link
-                className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors"
+                className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                 href="/projects/sharjah-roads-infrastructure"
+                aria-label={`${t('View case brief for', 'عرض تفاصيل مشروع')}: ${t('Sharjah Roads & Infrastructure', 'طرق وبنية تحتية في الشارقة')}`}
               >
                 <span>{t('Case Brief', 'موجز المشروع')}</span>
-                <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
+                <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>
           </div>

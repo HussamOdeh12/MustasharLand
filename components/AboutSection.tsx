@@ -59,7 +59,7 @@ export default function AboutSection() {
 
             <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#16A34A] shrink-0" />
+                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#16A34A] shrink-0" aria-hidden="true" />
                 <span className="font-sans text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
                   {t(
                     'Local UAE Experience & Engineering Standards',
@@ -68,11 +68,12 @@ export default function AboutSection() {
                 </span>
               </div>
               <Link
-                className="inline-flex items-center gap-1 font-sans text-xs sm:text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors self-start sm:self-auto"
+                className="inline-flex items-center gap-1 font-sans text-xs sm:text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors self-start sm:self-auto min-h-[44px] sm:min-h-0 py-2 sm:py-1 px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                 href="/services"
+                aria-label={t('Explore our engineering practice and services', 'استكشف مجالات عملنا وتخصصاتنا الهندسية')}
               >
                 <span>{t('Our Practice', 'مجالات عملنا')}</span>
-                <ArrowForward className="w-4 h-4 rtl:rotate-180" />
+                <ArrowForward className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>
           </div>

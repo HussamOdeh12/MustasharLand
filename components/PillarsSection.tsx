@@ -81,7 +81,7 @@ export default function PillarsSection() {
             return (
               <div key={idx} className="space-y-4">
                 <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[#16A34A]">
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <h3 className="font-sans text-lg font-bold text-slate-900 dark:text-white">
                   {t(pillar.titleEn, pillar.titleAr)}

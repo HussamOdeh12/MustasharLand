@@ -98,18 +98,18 @@ export default function ServiceDetailPage() {
     <div className="min-h-screen flex flex-col justify-between bg-white dark:bg-[#0B1117] transition-colors w-full">
       <Navbar />
 
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
         {/* Breadcrumbs */}
         <div className="border-b border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/40">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-3.5 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-            <Link href="/" className="hover:text-[#16A34A] transition-colors">
+            <Link href="/" className="hover:text-[#16A34A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-0.5">
               {t('Home', 'الرئيسية')}
             </Link>
-            <ChevronForward className="w-3.5 h-3.5 text-slate-400" />
-            <Link href="/services" className="hover:text-[#16A34A] transition-colors">
+            <ChevronForward className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
+            <Link href="/services" className="hover:text-[#16A34A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm py-0.5">
               {t('Services', 'الخدمات')}
             </Link>
-            <ChevronForward className="w-3.5 h-3.5 text-slate-400" />
+            <ChevronForward className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
             <span className="font-semibold text-slate-900 dark:text-white truncate">
               {t(service.title.en, service.title.ar)}
             </span>
@@ -148,7 +148,7 @@ export default function ServiceDetailPage() {
                       key={hIdx}
                       className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-start gap-2.5"
                     >
-                      <BookmarkCheck className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" />
+                      <BookmarkCheck className="w-4 h-4 text-[#16A34A] shrink-0 mt-0.5" aria-hidden="true" />
                       <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 leading-snug">
                         {hl}
                       </span>
@@ -160,15 +160,17 @@ export default function ServiceDetailPage() {
                 <div className="pt-4 flex flex-wrap items-center gap-4">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
+                    className="inline-flex items-center gap-2 min-h-[44px] px-6 py-3.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-sans text-xs font-bold uppercase tracking-wider shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                    aria-label={t('Request Service Consultation for this discipline', 'طلب استشارة في هذا التخصص الهندسي')}
                   >
                     <span>{t('Request Service Consultation', 'طلب استشارة في هذا التخصص')}</span>
-                    <ArrowForward className="w-4 h-4 rtl:rotate-180" />
+                    <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
                   </Link>
 
                   <Link
                     href="/services"
-                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-sans text-xs font-semibold tracking-wider transition-colors"
+                    className="inline-flex items-center gap-2 min-h-[44px] px-5 py-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-sans text-xs font-semibold tracking-wider transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2"
+                    aria-label={t('View All Disciplines catalog', 'استعراض كافة التخصصات الهندسية')}
                   >
                     <span>{t('View All Disciplines', 'استعراض كافة التخصصات')}</span>
                   </Link>
@@ -192,7 +194,7 @@ export default function ServiceDetailPage() {
                   <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-white/20 dark:border-slate-700/50 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-[#16A34A] text-white flex items-center justify-center">
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-5 h-5" aria-hidden="true" />
                       </div>
                       <div>
                         <span className="font-sans text-xs font-bold text-slate-900 dark:text-white block">
@@ -444,10 +446,11 @@ export default function ServiceDetailPage() {
                       </span>
                       <Link
                         href={`/projects/${project.id}`}
-                        className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors"
+                        className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                        aria-label={`${t('View project details for', 'عرض تفاصيل المشروع')} ${t(project.title.en, project.title.ar)}`}
                       >
                         <span>{t('View Project', 'تفاصيل المشروع')}</span>
-                        <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
+                        <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
                       </Link>
                     </div>
                   </div>
@@ -462,9 +465,10 @@ export default function ServiceDetailPage() {
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
             <Link
               href={`/services/${prevService.id}`}
-              className="flex items-center gap-3 text-slate-600 dark:text-slate-300 hover:text-[#16A34A] transition-colors self-start sm:self-auto"
+              className="flex items-center gap-3 text-slate-600 dark:text-slate-300 hover:text-[#16A34A] transition-colors self-start sm:self-auto min-h-[44px] p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-lg"
+              aria-label={`${t('Previous discipline:', 'التخصص السابق:')} ${t(prevService.title.en, prevService.title.ar)}`}
             >
-              <ArrowLeft className="w-4 h-4 rtl:rotate-180" />
+              <ArrowLeft className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
               <div>
                 <span className="text-[11px] font-mono text-slate-400 block">
                   {t('Previous Discipline', 'التخصص السابق')}
@@ -477,14 +481,15 @@ export default function ServiceDetailPage() {
 
             <Link
               href="/services"
-              className="font-sans text-xs font-bold text-[#16A34A] hover:underline uppercase tracking-wider"
+              className="font-sans text-xs font-bold text-[#16A34A] hover:underline uppercase tracking-wider min-h-[44px] inline-flex items-center px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-md"
             >
               {t('All Disciplines Catalog', 'فهرس التخصصات الكامل')}
             </Link>
 
             <Link
               href={`/services/${nextService.id}`}
-              className="flex items-center gap-3 text-slate-600 dark:text-slate-300 hover:text-[#16A34A] transition-colors text-right rtl:text-left self-end sm:self-auto"
+              className="flex items-center gap-3 text-slate-600 dark:text-slate-300 hover:text-[#16A34A] transition-colors text-right rtl:text-left self-end sm:self-auto min-h-[44px] p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-lg"
+              aria-label={`${t('Next discipline:', 'التخصص التالي:')} ${t(nextService.title.en, nextService.title.ar)}`}
             >
               <div>
                 <span className="text-[11px] font-mono text-slate-400 block">
@@ -494,7 +499,7 @@ export default function ServiceDetailPage() {
                   {t(nextService.title.en, nextService.title.ar)}
                 </span>
               </div>
-              <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+              <ArrowRight className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
             </Link>
           </div>
         </section>
@@ -507,7 +512,7 @@ export default function ServiceDetailPage() {
 
               <div className="max-w-3xl space-y-6 relative z-10">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#16A34A]" aria-hidden="true" />
                   <span>{t('100% Emirati-Owned & Managed', 'ملكية وإدارة إماراتية 100%')}</span>
                 </div>
 
@@ -542,7 +547,8 @@ export default function ServiceDetailPage() {
                     </span>
                     <a
                       href={`tel:${companyProfile.phonePrimary.replace(/\s+/g, '')}`}
-                      className="text-xs font-semibold text-[#4ADE80] hover:underline block font-mono"
+                      className="text-xs font-semibold text-[#4ADE80] hover:underline inline-flex items-center min-h-[44px] py-2 font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ADE80] rounded-sm"
+                      aria-label={`${t('Call telephone number', 'اتصل برقم الهاتف')} ${companyProfile.phonePrimary}`}
                     >
                       {companyProfile.phonePrimary}
                     </a>
@@ -554,7 +560,8 @@ export default function ServiceDetailPage() {
                     </span>
                     <a
                       href={`mailto:${companyProfile.email}`}
-                      className="text-xs font-semibold text-[#4ADE80] hover:underline block font-mono"
+                      className="text-xs font-semibold text-[#4ADE80] hover:underline inline-flex items-center min-h-[44px] py-2 font-mono focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ADE80] rounded-sm"
+                      aria-label={`${t('Send email to', 'أرسل بريداً إلكترونياً إلى')} ${companyProfile.email}`}
                     >
                       {companyProfile.email}
                     </a>
