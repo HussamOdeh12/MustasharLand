@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useApp } from '@/lib/context';
 import {
   Building2,
@@ -22,6 +23,7 @@ export default function ServicesSection() {
 
   const disciplines = [
     {
+      id: 'civil-structural',
       icon: Building2,
       titleEn: 'Civil & Structural Engineering',
       titleAr: 'الهندسة المدنية والإنشائية',
@@ -31,6 +33,7 @@ export default function ServicesSection() {
         'النمذجة والتحليل الإنشائي، تصميم القواعد والأساسات، والتحقق الهندسي للهياكل الخرسانية وفق الأكواد والمعايير الهندسية المعتمدة.',
     },
     {
+      id: 'construction-supervision',
       icon: ClipboardCheck,
       titleEn: 'Construction Supervision & QA/QC',
       titleAr: 'الإشراف الهندسي وضبط الجودة',
@@ -40,40 +43,44 @@ export default function ServicesSection() {
         'تفتيش موقعي مستقل، فحوصات مستمرة للمواد والخرسانة، ومتابعة دقيقة لامتثال المقاولين في كافة مراحل التنفيذ.',
     },
     {
+      id: 'pmc',
       icon: FolderGit2,
       titleEn: 'Project Management Consultancy',
       titleAr: 'إدارة المشاريع الهندسية (PMC)',
       descEn:
-        'Full-lifecycle PMC governance, schedule baseline management (Primavera/MS Project), contract administration, and value engineering.',
+        'Project planning, milestone coordination, cost, time and quality management, and comprehensive technical consultancy.',
       descAr:
-        'حوكمة وإدارة دورة حياة المشروع كاملة، التحكم بالجداول الزمنية والتدفقات المالية، وإدارة العقود والهندسة القيمة.',
+        'التخطيط الهندسي، وتنسيق المراحل الزمنية، وإدارة التكلفة والوقت والجودة، وتقديم الاستشارات الفنية المتخصصة.',
     },
     {
+      id: 'infrastructure-planning',
       icon: Droplets,
       titleEn: 'Infrastructure & Wet Utilities',
       titleAr: 'البنية التحتية وشبكات المياه والصرف',
       descEn:
-        'Sanitary networks, stormwater modeling, manhole integrity appraisals, and multi-agency municipal NOC approvals across all Emirates.',
+        'Infrastructure planning, wet utilities engineering, technical consultancy, and rigorous site coordination.',
       descAr:
-        'تصميم شبكات الصرف الصحي، تصريف مياه الأمطار، واعتمادات شهادات عدم الممانعة (NOC) من كافة الدوائر والبلديات.',
+        'تخطيط البنية التحتية، وهندسة شبكات المياه والصرف، وتقديم الاستشارات الفنية، والتنسيق الميداني في الموقع.',
     },
     {
+      id: 'urban-gis',
       icon: Map,
       titleEn: 'Urban Planning & GIS Addressing',
       titleAr: 'التخطيط الحضري ونظم المعلومات الجغرافية',
       descEn:
-        'Spatial geometry, master plan circulation, Onwani addressing system compliance, and geographic information system integration.',
+        'Urban planning, spatial analysis, addressing maps, signage layouts, and GIS-integrated databases.',
       descAr:
-        'تخطيط المساحات الحضرية، المخططات الرئيسية، التوافق مع نظام العنونة الموحد (عنواني)، وتكامل نظم GIS.',
+        'التخطيط الحضري، والتحليل المكاني، وخرائط العنونة، ومخططات اللوحات الإرشادية، وقواعد بيانات نظم المعلومات الجغرافية (GIS).',
     },
     {
+      id: 'landscape-green',
       icon: Trees,
       titleEn: 'Landscape & Green Space Planning',
       titleAr: 'تنسيق الحدائق والمساحات الخضراء المستدامة',
       descEn:
-        'Estidama Pearl-compliant arid xeriscaping, smart micro-irrigation calculations, native flora selection, and sustainable exterior public realms.',
+        'Landscaping supervision, native flora planting, micro-irrigation, sustainable green spaces, and low-water-use systems.',
       descAr:
-        'تنسيق حدائق مستدام يراعي نظام استدامة والبيئة الصحراوية، حسابات الري الذكي، واختيار النباتات المحلية المقاومة للجفاف.',
+        'الإشراف على تنسيق الحدائق، وزراعة النباتات المحلية، وشبكات الري الدقيق، وتطوير المساحات الخضراء والأنظمة الموفرة للمياه.',
     },
   ];
 
@@ -99,13 +106,13 @@ export default function ServicesSection() {
               )}
             </h2>
           </div>
-          <a
+          <Link
             className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors self-start md:self-auto"
-            href="#contact"
+            href="/services"
           >
             <span>{t('View All Services', 'استعراض كافة الخدمات')}</span>
             <ArrowForward className="w-4 h-4 rtl:rotate-180" />
-          </a>
+          </Link>
         </div>
 
         {/* 3x2 Minimalist Card Grid */}
@@ -121,21 +128,23 @@ export default function ServicesSection() {
                   <div className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-200 group-hover:text-[#16A34A] group-hover:border-[#16A34A]/30 transition-colors">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white">
-                    {t(disc.titleEn, disc.titleAr)}
+                  <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
+                    <Link href={`/services/${disc.id}`}>
+                      {t(disc.titleEn, disc.titleAr)}
+                    </Link>
                   </h3>
                   <p className="font-body text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                     {t(disc.descEn, disc.descAr)}
                   </p>
                 </div>
                 <div className="pt-6 mt-6 border-t border-slate-200/60 dark:border-slate-800">
-                  <a
-                    href="#contact"
+                  <Link
+                    href={`/services/${disc.id}`}
                     className="font-sans text-xs font-bold text-[#16A34A] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform inline-flex items-center gap-1"
                   >
                     <span>{t('READ DISCIPLINE', 'تفاصيل التخصص')}</span>
                     <ChevronForward className="w-3.5 h-3.5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             );

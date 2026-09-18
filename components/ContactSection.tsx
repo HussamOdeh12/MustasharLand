@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useApp } from '@/lib/context';
 import { ArrowRight, ArrowLeft, Phone } from 'lucide-react';
 
@@ -41,14 +42,14 @@ export default function ContactSection() {
             </p>
 
             <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
-              <a
+              <Link
                 className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-[#16A34A] text-white font-sans text-sm font-semibold tracking-wide shadow-md hover:bg-[#15803D] transition-all w-full sm:w-auto text-center"
-                href="mailto:info@mustasharland.ae"
+                href="/contact"
                 id="contact-request-consultation-btn"
               >
                 <span>{t('Contact Us', 'تواصل معنا')}</span>
                 <ArrowForward className="w-4 h-4 rtl:rotate-180 shrink-0" />
-              </a>
+              </Link>
 
               <a
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-slate-800/80 text-white font-sans text-sm font-semibold border border-slate-700 hover:bg-slate-800 transition-all w-full sm:w-auto text-center"

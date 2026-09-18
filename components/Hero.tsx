@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useApp } from '@/lib/context';
 import { ArrowRight, ArrowLeft, ArrowUpRight } from 'lucide-react';
 
@@ -46,23 +47,23 @@ export default function Hero() {
 
           {/* Two Hero Buttons - Stack on mobile, horizontal on sm+ */}
           <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto max-w-md mx-auto sm:max-w-none">
-            <a
+            <Link
               className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-lg bg-[#16A34A] text-white font-sans text-sm font-semibold tracking-wide shadow-sm hover:bg-[#15803D] hover:shadow transition-all duration-200 w-full sm:w-auto text-center"
-              href="#services"
+              href="/services"
               id="hero-explore-services-btn"
             >
               <span>{t('Explore Services', 'استكشف خدماتنا')}</span>
               <ArrowForward className="w-4 h-4 rtl:rotate-180 shrink-0" />
-            </a>
+            </Link>
 
-            <a
+            <Link
               className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-sans text-sm font-semibold tracking-wide border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200 w-full sm:w-auto text-center"
-              href="#projects"
+              href="/projects"
               id="hero-view-projects-btn"
             >
               <span>{t('View Our Projects', 'مشاريعنا الهندسية')}</span>
               <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0" />
-            </a>
+            </Link>
           </div>
         </div>
 

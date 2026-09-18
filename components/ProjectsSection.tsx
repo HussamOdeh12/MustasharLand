@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { useApp } from '@/lib/context';
 import { ArrowRight, ArrowLeft, Landmark, Route } from 'lucide-react';
@@ -16,25 +17,35 @@ export default function ProjectsSection() {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-[2px] w-6 bg-[#16A34A]" />
-            <span className="font-sans text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase">
-              {t('Selected Works', 'مشاريع مختارة')}
-            </span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2">
+              <span className="h-[2px] w-6 bg-[#16A34A]" />
+              <span className="font-sans text-xs font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase">
+                {t('Selected Works', 'مشاريع مختارة')}
+              </span>
+            </div>
+            <h2 className="font-sans text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+              {t(
+                'Proven Track Record Across Key Sectors',
+                'سجل حافل بالإنجازات عبر مختلف القطاعات الحيوية'
+              )}
+            </h2>
+            <p className="font-body text-slate-600 dark:text-slate-300 text-base max-w-2xl">
+              {t(
+                'A portfolio of engineering excellence delivered in partnership with governmental bodies, prominent developers, and regional institutions.',
+                'محفظة زاخرة بالتميز الهندسي تم إنجازها بشراكة وثيقة مع الجهات الحكومية، كبار المطورين العقاريين، والمؤسسات الإقليمية.'
+              )}
+            </p>
           </div>
-          <h2 className="font-sans text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
-            {t(
-              'Proven Track Record Across Key Sectors',
-              'سجل حافل بالإنجازات عبر مختلف القطاعات الحيوية'
-            )}
-          </h2>
-          <p className="font-body text-slate-600 dark:text-slate-300 text-base max-w-2xl">
-            {t(
-              'A portfolio of engineering excellence delivered in partnership with governmental bodies, prominent developers, and regional institutions.',
-              'محفظة زاخرة بالتميز الهندسي تم إنجازها بشراكة وثيقة مع الجهات الحكومية، كبار المطورين العقاريين، والمؤسسات الإقليمية.'
-            )}
-          </p>
+
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-sans text-xs font-bold uppercase tracking-wider hover:border-[#16A34A] hover:text-[#16A34A] transition-colors shrink-0"
+          >
+            <span>{t('View All Projects', 'كافة المشاريع')}</span>
+            <ArrowForward className="w-4 h-4 rtl:rotate-180" />
+          </Link>
         </div>
 
         {/* Grid Display */}
@@ -89,15 +100,15 @@ export default function ProjectsSection() {
 
               <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                 <span className="font-sans text-xs font-semibold text-slate-400">
-                  {t('Delivered Project', 'مشروع منجز')}
+                  {t('Sports Facility', 'منشأة رياضية')}
                 </span>
-                <a
+                <Link
                   className="inline-flex items-center gap-1 font-sans text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors"
-                  href="#contact"
+                  href="/projects/mohammed-bin-zayed-stadium"
                 >
-                  <span>{t('Project Inquiry', 'استفسار عن المشروع')}</span>
+                  <span>{t('View Case Study', 'عرض تفاصيل المشروع')}</span>
                   <ArrowForward className="w-4 h-4 rtl:rotate-180" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -124,8 +135,10 @@ export default function ProjectsSection() {
                 <span className="font-sans text-xs uppercase tracking-widest text-slate-400 font-bold block">
                   {t('Abu Dhabi Residential', 'مشاريع سكنية في أبوظبي')}
                 </span>
-                <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white">
-                  {t('Design and Supervision of 30 Private Villas', 'تصميم والإشراف على 30 فيلا خاصة')}
+                <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
+                  <Link href="/projects/30-private-villas-abu-dhabi">
+                    {t('Design and Supervision of 30 Private Villas', 'تصميم والإشراف على 30 فيلا خاصة')}
+                  </Link>
                 </h3>
                 <p className="font-body text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {t(
@@ -137,15 +150,15 @@ export default function ProjectsSection() {
             </div>
             <div className="p-6 sm:p-8 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-4">
               <span className="font-sans text-xs font-semibold text-slate-400">
-                {t('Handed Over', 'تم التسليم بنجاح')}
+                {t('Residential Typology', 'قطاع سكني')}
               </span>
-              <a
+              <Link
                 className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors"
-                href="#contact"
+                href="/projects/30-private-villas-abu-dhabi"
               >
                 <span>{t('View Details', 'تفاصيل المشروع')}</span>
                 <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -158,11 +171,13 @@ export default function ProjectsSection() {
               <span className="font-sans text-xs uppercase tracking-widest text-slate-400 font-bold block">
                 {t('Call Center 800850 • Municipalities', 'مركز الاتصال 800850 • البلديات')}
               </span>
-              <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white">
-                {t(
-                  'Technical Support for MEP & eNOC Systems',
-                  'خدمات الدعم الفني لأنظمة MEP و eNOC'
-                )}
+              <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
+                <Link href="/projects/mep-enoc-callcenter-800850">
+                  {t(
+                    'Technical Support for MEP & eNOC Systems',
+                    'خدمات الدعم الفني لأنظمة MEP و eNOC'
+                  )}
+                </Link>
               </h3>
               <p className="font-body text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {t(
@@ -189,13 +204,13 @@ export default function ProjectsSection() {
               <span className="font-sans text-xs font-semibold text-slate-400">
                 {t('Technical Support Services', 'خدمات دعم فني')}
               </span>
-              <a
+              <Link
                 className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors"
-                href="#contact"
+                href="/projects/mep-enoc-callcenter-800850"
               >
                 <span>{t('Learn More', 'المزيد من التفاصيل')}</span>
                 <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -208,11 +223,13 @@ export default function ProjectsSection() {
               <span className="font-sans text-xs uppercase tracking-widest text-slate-400 font-bold block">
                 {t('Roads & Infrastructure', 'الطرق والبنية التحتية')}
               </span>
-              <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white">
-                {t(
-                  'Sharjah Roads & Infrastructure',
-                  'طرق وبنية تحتية في الشارقة'
-                )}
+              <h3 className="font-sans text-xl font-bold text-slate-900 dark:text-white group-hover:text-[#16A34A] transition-colors">
+                <Link href="/projects/sharjah-roads-infrastructure">
+                  {t(
+                    'Sharjah Roads & Infrastructure',
+                    'طرق وبنية تحتية في الشارقة'
+                  )}
+                </Link>
               </h3>
               <p className="font-body text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {t(
@@ -233,13 +250,13 @@ export default function ProjectsSection() {
               <span className="font-sans text-xs font-semibold text-slate-400">
                 {t('Infrastructure', 'بنية تحتية')}
               </span>
-              <a
+              <Link
                 className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors"
-                href="#contact"
+                href="/projects/sharjah-roads-infrastructure"
               >
                 <span>{t('Case Brief', 'موجز المشروع')}</span>
                 <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

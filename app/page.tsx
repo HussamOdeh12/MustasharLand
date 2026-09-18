@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { AppProvider } from '@/lib/context';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AboutSection from '@/components/AboutSection';
@@ -13,17 +12,15 @@ import Footer from '@/components/Footer';
 
 export default function HomePage() {
   return (
-    <AppProvider>
-      <main className="relative w-full max-w-full min-h-screen overflow-x-hidden bg-[#F8FAFC]/50 dark:bg-[#0B1117] text-slate-800 dark:text-slate-200 flex flex-col antialiased transition-colors duration-200">
-        <Navbar />
-        <Hero />
-        <AboutSection />
-        <ServicesSection />
-        <ProjectsSection />
-        <PillarsSection />
-        <ContactSection />
-        <Footer />
-      </main>
-    </AppProvider>
+    <main className="relative w-full max-w-full min-h-screen overflow-x-hidden bg-[#F8FAFC]/50 dark:bg-[#0B1117] text-slate-800 dark:text-slate-200 flex flex-col antialiased transition-colors duration-200">
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <ServicesSection />
+      <ProjectsSection />
+      <PillarsSection />
+      <ContactSection />
+      <Footer />
+    </main>
   );
 }

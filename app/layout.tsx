@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono, Cairo } from 'next/font/google';
 import './globals.css';
+import { AppProvider } from '@/lib/context';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     'Civil & Structural Engineering',
     'Construction Supervision QA/QC',
     'Project Management PMC',
-    'Municipal Approvals Abu Dhabi',
+    'Engineering Consultancy UAE',
   ],
   openGraph: {
     title: 'MUSTASHAR LAND Engineering Consultancy | مستشار لاند للاستشارات الهندسية',
@@ -118,7 +119,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className="w-full max-w-full min-h-screen overflow-x-hidden font-body bg-[#F8FAFC]/60 text-slate-700 antialiased selection:bg-[#DCFCE7] selection:text-[#14532D] dark:bg-[#0B1117] dark:text-[#C1C7CF] transition-colors duration-200"
         suppressHydrationWarning
       >
-        {children}
+        <AppProvider>
+          {children}
+        </AppProvider>
       </body>
     </html>
   );

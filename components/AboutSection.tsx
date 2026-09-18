@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useApp } from '@/lib/context';
 import { CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
 
@@ -66,13 +67,13 @@ export default function AboutSection() {
                   )}
                 </span>
               </div>
-              <a
+              <Link
                 className="inline-flex items-center gap-1 font-sans text-xs sm:text-sm font-semibold text-[#16A34A] hover:text-[#15803D] transition-colors self-start sm:self-auto"
-                href="#services"
+                href="/services"
               >
                 <span>{t('Our Practice', 'مجالات عملنا')}</span>
                 <ArrowForward className="w-4 h-4 rtl:rotate-180" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

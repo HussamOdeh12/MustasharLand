@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useApp } from '@/lib/context';
 import BrandLogo from './BrandLogo';
 
@@ -16,13 +17,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8 w-full">
           {/* Col 1: Brand & Credentials (Span 4) */}
           <div className="sm:col-span-2 lg:col-span-4 space-y-6">
-            <a
+            <Link
               aria-label="MUSTASHAR LAND Homepage"
               className="flex items-center gap-3"
-              href="#"
+              href="/"
             >
               <BrandLogo size="md" />
-            </a>
+            </Link>
             <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
               {t(
                 'Established in 2019. 100% Emirati-owned multidisciplinary engineering consultancy headquartered in Abu Dhabi, delivering excellence in architectural design, structural engineering, and construction supervision across the UAE.',
@@ -46,44 +47,44 @@ export default function Footer() {
             </span>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#"
+                  href="/"
                 >
                   {t('Home', 'الرئيسية')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#about"
+                  href="/about"
                 >
                   {t('About Us', 'من نحن')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#services"
+                  href="/services"
                 >
                   {t('Disciplines', 'التخصصات')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#projects"
+                  href="/projects"
                 >
                   {t('Projects', 'المشاريع')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#contact"
+                  href="/contact"
                 >
                   {t('Contact', 'اتصل بنا')}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -95,52 +96,52 @@ export default function Footer() {
             </span>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#services"
+                  href="/services/civil-structural"
                 >
                   {t('Civil & Structural Design', 'الهندسة المدنية والإنشائية')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#services"
+                  href="/services/construction-supervision"
                 >
                   {t('Construction Supervision QA/QC', 'الإشراف الهندسي وضبط الجودة')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#services"
+                  href="/services/pmc"
                 >
                   {t('Project Management (PMC)', 'إدارة المشاريع (PMC)')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#services"
+                  href="/services/infrastructure-planning"
                 >
                   {t('Infrastructure & Wet Utilities', 'البنية التحتية وشبكات المياه والصرف')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#services"
+                  href="/services/urban-gis"
                 >
                   {t('Urban Planning & GIS', 'التخطيط الحضري ونظم المعلومات الجغرافية')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="hover:text-[#16A34A] transition-colors"
-                  href="#services"
+                  href="/services/landscape-green"
                 >
-                  {t('Landscape & Xeriscaping', 'تنسيق الحدائق والمساحات الخضراء')}
-                </a>
+                  {t('Landscape & Green Space', 'تنسيق الحدائق والمساحات الخضراء')}
+                </Link>
               </li>
             </ul>
           </div>
