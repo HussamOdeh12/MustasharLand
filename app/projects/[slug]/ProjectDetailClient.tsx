@@ -102,7 +102,8 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
                 src={activeImage}
                 alt={t(project.title.en, project.title.ar)}
                 fill
-                sizes="(max-width: 1200px) 100vw, 1200px"
+                quality={88}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1200px"
                 className="w-full h-full object-cover transition-all duration-500"
                 priority
                 referrerPolicy="no-referrer"
@@ -136,8 +137,9 @@ export default function ProjectDetailClient({ project }: { project: Project }) {
                   >
                     <Image
                       src={img}
-                      alt={`Gallery ${i + 1}`}
+                      alt={`${t(project.title.en, project.title.ar)} thumbnail ${i + 1}`}
                       fill
+                      quality={75}
                       sizes="120px"
                       className="object-cover"
                       referrerPolicy="no-referrer"

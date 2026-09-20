@@ -72,10 +72,11 @@ export default function Hero() {
           <div className="relative w-full rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl lg:shadow-2xl shadow-slate-200/80 dark:shadow-none border border-slate-200/80 dark:border-slate-800 bg-slate-900 aspect-[16/10] sm:aspect-[16/9] max-h-[560px]">
             <Image
               alt={t('Monumental UAE Civil and Structural Engineering Infrastructure in Abu Dhabi', 'مشاريع البنية التحتية والهندسة الإنشائية في أبوظبي')}
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuFkUY4xCNoYI8FCW3adHnXZ5nAMTZKu2-Ge6_66zJ9av2vXxrXf9myclbdDoxflpSf62Q5f3bLh-uRLPQm9CarKZdgJTCRVLJCfyJ4oxeemjNa5mPrWNpxM5eDZ1Cw1OeRRCnbm-GqWQIdqWp4kikG37qQA0szUeZDv8ggcqELTmNEO25PzFtN93MfdSFsIXLgjU12gf7czNKeVPVkGCg_N70kJrd_JsOQYMhjKAGpynrpNAcx1cE"
+              src="/images/hero/hero-monumental-infrastructure.jpg"
               fill
               priority
               fetchPriority="high"
+              quality={90}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1200px"
               className="w-full h-full object-cover object-center transform hover:scale-[1.01] transition-transform duration-700 ease-out"
               referrerPolicy="no-referrer"

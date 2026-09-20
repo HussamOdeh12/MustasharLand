@@ -166,7 +166,8 @@ export default function ProjectsPage() {
                         src={project.heroImage}
                         alt={t(project.title.en, project.title.ar)}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={85}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                         referrerPolicy="no-referrer"
                       />

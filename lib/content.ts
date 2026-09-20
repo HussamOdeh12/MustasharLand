@@ -195,7 +195,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Prokon Structural Analysis',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1541888946425-d0fbb186f5f8?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/structural-engineering.jpg',
     highlights: {
       en: [
         'Structural design and engineering review for 30 private residential villas',
@@ -311,7 +311,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Comprehensive Engineering Progress Reporting',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/construction-supervision.jpg',
     highlights: {
       en: [
         'Full resident supervision on 30 private villas across Abu Dhabi emirate',
@@ -425,7 +425,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Engineering Quality Management Frameworks',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/project-management.jpg',
     highlights: {
       en: [
         'Active governance ensuring milestone compliance across residential and infrastructure sectors',
@@ -541,7 +541,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Geospatial Mapping Layers',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1545459720-aac8509eb02c?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/infrastructure-sharjah.jpg',
     highlights: {
       en: [
         'Roadway and infrastructure consultancy references in Sharjah',
@@ -655,7 +655,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Autodesk Civil 3D',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/urban-planning.jpg',
     highlights: {
       en: [
         'Integrated spatial planning across residential projects',
@@ -769,7 +769,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Indigenous Plant Library Database',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1558904541-efa8c4a08931?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/landscape-architecture.jpg',
     highlights: {
       en: [
         'Sustainable landscape designs tailored to private villas across Abu Dhabi',
@@ -884,7 +884,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Adobe Creative Suite',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/architectural-design.jpg',
     highlights: {
       en: [
         'Architectural design for 30 private villas across Abu Dhabi',
@@ -1002,7 +1002,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Dialux Lighting Calculation Software',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/mep-engineering.jpg',
     highlights: {
       en: [
         'Integrated MEP designs across 30 private residential villas',
@@ -1116,7 +1116,7 @@ export const serviceDisciplines: ServiceDiscipline[] = [
       'Engineering Feasibility Modeling Spreadsheets',
     ],
     heroImage:
-      'https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/municipal-noc-support.jpg',
     highlights: {
       en: [
         'Documented technical support services for MEP & eNOC via Call Center 800850',
@@ -1144,11 +1144,11 @@ export const projectsData: Project[] = [
     categoryLabel: { en: 'Sports Facility', ar: 'منشآت رياضية' },
     location: { en: 'Abu Dhabi, UAE', ar: 'أبوظبي، الإمارات' },
     heroImage:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBIWF1ECqleHA1MmG-DHM-vcxIPYJ9nSG5iDQfKZiVZ9-rTWgtszlk609L62AXsmr69ThedGKOw9IHQzk4THTuxs4bixc9B22zpHu7gEz6KbrOYsOBQapQBo2zFi40b00F7WgWk8tKusXoTLPuTkfXazk0roO4eRktgZ-z8vlRvonJ_8fJqCWCsQ73A4RIkG3FF94cqeMPMfsTwAvAJX9pmGXasjkQPsTx1rNHm2Ce5n9mhbeakcDjl',
+      '/images/projects/mbz-stadium.jpg',
     galleryImages: [
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBIWF1ECqleHA1MmG-DHM-vcxIPYJ9nSG5iDQfKZiVZ9-rTWgtszlk609L62AXsmr69ThedGKOw9IHQzk4THTuxs4bixc9B22zpHu7gEz6KbrOYsOBQapQBo2zFi40b00F7WgWk8tKusXoTLPuTkfXazk0roO4eRktgZ-z8vlRvonJ_8fJqCWCsQ73A4RIkG3FF94cqeMPMfsTwAvAJX9pmGXasjkQPsTx1rNHm2Ce5n9mhbeakcDjl',
-      'https://images.unsplash.com/photo-1541888946425-d0fbb186f5f8?q=80&w=1600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/mbz-stadium.jpg',
+      '/images/disciplines/structural-engineering.jpg',
+      '/images/disciplines/construction-supervision.jpg',
     ],
     summary: {
       en: 'Development work, structural review, and technical engineering support for Mohammed bin Zayed Stadium at Al Jazira Club in Abu Dhabi.',
@@ -1186,11 +1186,11 @@ export const projectsData: Project[] = [
     categoryLabel: { en: 'Residential', ar: 'مشاريع سكنية' },
     location: { en: 'Abu Dhabi, UAE', ar: 'أبوظبي، الإمارات' },
     heroImage:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBk8k6X0o0azHC783Lh-AKhXrQuOqhKuX0wH_-XPXgHEQKC9Iu5M3qAev34VBg2F6XB1R8t3gbWG71A8FLfCaCvsVTNZCiCd7yQGH24-yipKTAZ7FHCIAH5aO6irG8bN8vGieZYitIhcA6erXZ91pOqJhiMyWGrUKHTaU8BI1KE6187Vn7aaHCn2M-Ot5tSuvq9bgDC5MpTZBpV3M1bpldmK-6VAFNPeCnYoCCem8PwcSQbutqZwzez',
+      '/images/projects/villas-abu-dhabi.jpg',
     galleryImages: [
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBk8k6X0o0azHC783Lh-AKhXrQuOqhKuX0wH_-XPXgHEQKC9Iu5M3qAev34VBg2F6XB1R8t3gbWG71A8FLfCaCvsVTNZCiCd7yQGH24-yipKTAZ7FHCIAH5aO6irG8bN8vGieZYitIhcA6erXZ91pOqJhiMyWGrUKHTaU8BI1KE6187Vn7aaHCn2M-Ot5tSuvq9bgDC5MpTZBpV3M1bpldmK-6VAFNPeCnYoCCem8PwcSQbutqZwzez',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/villas-abu-dhabi.jpg',
+      '/images/disciplines/architectural-design.jpg',
+      '/images/about/abu-dhabi-architecture.jpg',
     ],
     summary: {
       en: 'Comprehensive architectural design, structural engineering drawings, and resident construction supervision for 30 private villas across Abu Dhabi.',
@@ -1234,11 +1234,11 @@ export const projectsData: Project[] = [
       ar: 'أبوظبي، العين، والظفرة، دولة الإمارات',
     },
     heroImage:
-      'https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/municipal-noc-support.jpg',
     galleryImages: [
-      'https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/municipal-noc-support.jpg',
+      '/images/disciplines/project-management.jpg',
+      '/images/disciplines/mep-engineering.jpg',
     ],
     summary: {
       en: 'Technical support services through qualified engineers for MEP and eNOC licensing systems via call center 800850 covering Abu Dhabi City Municipality, Al Ain City Municipality, and Al Dhafra Western Region Municipality.',
@@ -1287,11 +1287,11 @@ export const projectsData: Project[] = [
     categoryLabel: { en: 'Infrastructure', ar: 'بنية تحتية' },
     location: { en: 'Sharjah, UAE', ar: 'الشارقة، الإمارات' },
     heroImage:
-      'https://images.unsplash.com/photo-1545459720-aac8509eb02c?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/infrastructure-sharjah.jpg',
     galleryImages: [
-      'https://images.unsplash.com/photo-1545459720-aac8509eb02c?q=80&w=1600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1541888946425-d0fbb186f5f8?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/infrastructure-sharjah.jpg',
+      '/images/projects/infrastructure-engineering-detail.jpg',
+      '/images/disciplines/structural-engineering.jpg',
     ],
     summary: {
       en: 'Engineering consultancy, infrastructure planning, and technical reviews for roadway and utilities projects in Sharjah.',
@@ -1328,10 +1328,10 @@ export const projectsData: Project[] = [
     categoryLabel: { en: 'Municipal & Governmental', ar: 'مشاريع ومراجع بلدية' },
     location: { en: 'Dubai, UAE', ar: 'دبي، الإمارات' },
     heroImage:
-      'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/dubai-municipality.jpg',
     galleryImages: [
-      'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1580674684081-7617fbf3d745?q=80&w=1600&auto=format&fit=crop',
+      '/images/projects/dubai-municipality.jpg',
+      '/images/projects/dubai-municipality-detail.jpg',
     ],
     summary: {
       en: 'Engineering consultancy reviews and technical documentation references associated with Dubai Municipality requirements.',
@@ -1363,10 +1363,10 @@ export const projectsData: Project[] = [
     categoryLabel: { en: 'Wet Utilities & Infrastructure', ar: 'شبكات الصرف والبنية التحتية' },
     location: { en: 'Abu Dhabi, UAE', ar: 'أبوظبي، الإمارات' },
     heroImage:
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/mep-engineering.jpg',
     galleryImages: [
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1545459720-aac8509eb02c?q=80&w=1600&auto=format&fit=crop',
+      '/images/disciplines/mep-engineering.jpg',
+      '/images/projects/infrastructure-sharjah.jpg',
     ],
     summary: {
       en: 'Technical coordination and engineering consultancy references for infrastructure and wet utilities with Abu Dhabi Sewerage Services Company.',

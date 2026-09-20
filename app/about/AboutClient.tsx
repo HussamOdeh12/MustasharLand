@@ -251,12 +251,13 @@ export default function AboutPage() {
           {/* Primary Editorial Image Banner */}
           <div className="relative w-full h-72 sm:h-96 lg:h-[480px] rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 dark:border-slate-800">
             <Image
-              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80"
+              src="/images/about/abu-dhabi-architecture.jpg"
               alt="Abu Dhabi Modern Architecture and Engineering"
               fill
               className="object-cover"
               priority
-              sizes="(max-width: 1280px) 100vw, 1280px"
+              quality={88}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1200px"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-end p-6 sm:p-10">

@@ -154,7 +154,8 @@ export default function ServiceDetailClient({ service }: { service: ServiceDisci
                     src={service.heroImage}
                     alt={t(service.title.en, service.title.ar)}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    quality={88}
+                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 45vw, 540px"
                     className="w-full h-full object-cover"
                     priority
                     referrerPolicy="no-referrer"
@@ -384,7 +385,8 @@ export default function ServiceDetailClient({ service }: { service: ServiceDisci
                           src={project.heroImage}
                           alt={t(project.title.en, project.title.ar)}
                           fill
-                          sizes="(max-width: 768px) 100vw, 33vw"
+                          quality={85}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                           referrerPolicy="no-referrer"
                         />

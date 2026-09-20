@@ -56,9 +56,10 @@ export default function ProjectsSection() {
             <div className="lg:w-7/12 relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-slate-950 min-h-[260px] sm:min-h-[300px]">
               <Image
                 alt={t('Development work for Mohammed bin Zayed Stadium at Al Jazira Club in Abu Dhabi', 'أعمال تطوير استاد محمد بن زايد بنادي الجزيرة في أبوظبي')}
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIWF1ECqleHA1MmG-DHM-vcxIPYJ9nSG5iDQfKZiVZ9-rTWgtszlk609L62AXsmr69ThedGKOw9IHQzk4THTuxs4bixc9B22zpHu7gEz6KbrOYsOBQapQBo2zFi40b00F7WgWk8tKusXoTLPuTkfXazk0roO4eRktgZ-z8vlRvonJ_8fJqCWCsQ73A4RIkG3FF94cqeMPMfsTwAvAJX9pmGXasjkQPsTx1rNHm2Ce5n9mhbeakcDjl"
+                src="/images/projects/mbz-stadium.jpg"
                 fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
+                quality={88}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 700px"
                 className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 referrerPolicy="no-referrer"
               />
@@ -126,9 +127,10 @@ export default function ProjectsSection() {
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
                 <Image
                   alt="Design and Supervision of 30 Private Villas"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk8k6X0o0azHC783Lh-AKhXrQuOqhKuX0wH_-XPXgHEQKC9Iu5M3qAev34VBg2F6XB1R8t3gbWG71A8FLfCaCvsVTNZCiCd7yQGH24-yipKTAZ7FHCIAH5aO6irG8bN8vGieZYitIhcA6erXZ91pOqJhiMyWGrUKHTaU8BI1KE6187Vn7aaHCn2M-Ot5tSuvq9bgDC5MpTZBpV3M1bpldmK-6VAFNPeCnYoCCem8PwcSQbutqZwzez"
+                  src="/images/projects/villas-abu-dhabi.jpg"
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={88}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
