@@ -423,7 +423,7 @@ export default function ServicesPage() {
       {/* Interactive Category Filter Bar */}
       <section className="sticky top-20 z-40 bg-white/95 dark:bg-[#0B1117]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 py-4 transition-colors">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between gap-4 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-2 shrink-0" role="tablist" aria-label={t('Engineering discipline categories', 'أقسام التخصصات الهندسية')}>
+          <div className="flex items-center gap-2 shrink-0" role="group" aria-label={t('Engineering discipline categories', 'أقسام التخصصات الهندسية')}>
             {categories.map((cat) => {
               const active = selectedCategory === cat.id;
               return (
@@ -431,8 +431,7 @@ export default function ServicesPage() {
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
                   type="button"
-                  role="tab"
-                  aria-selected={active}
+                  aria-pressed={active}
                   className={`min-h-[44px] px-4 py-2.5 rounded-lg font-sans text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2 ${
                     active
                       ? 'bg-[#16A34A] text-white shadow-sm'
@@ -474,7 +473,7 @@ export default function ServicesPage() {
                       <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-[#16A34A] group-hover:bg-[#DCFCE7] dark:group-hover:bg-[#16A34A]/20 transition-colors shadow-sm">
                         <Icon className="w-6 h-6" aria-hidden="true" />
                       </div>
-                      <span className="font-mono text-xs font-bold text-slate-400">
+                      <span className="font-mono text-xs font-bold text-slate-500 dark:text-slate-400">
                         {item.number}
                       </span>
                     </div>
@@ -529,15 +528,15 @@ export default function ServicesPage() {
                       className="font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] inline-flex items-center gap-1.5 transition-colors min-h-[44px] py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                       aria-label={`${t('View details for', 'عرض تفاصيل')} ${t(item.titleEn, item.titleAr)}`}
                     >
-                      <span>{t('View Discipline Details', 'عرض تفاصيل التخصص')}</span>
+                      <span>{t(`View ${item.titleEn}`, `عرض ${item.titleAr}`)}</span>
                       <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
                     </Link>
                     <Link
                       href="/contact"
-                      className="text-[11px] font-medium text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors min-h-[44px] py-2 px-2 flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
+                      className="text-[11px] font-medium text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 transition-colors min-h-[44px] py-2 px-2 flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                       aria-label={`${t('Consult about', 'استشارة حول')} ${t(item.titleEn, item.titleAr)}`}
                     >
-                      {t('Consult', 'استشارة')}
+                      {t('Consult on Discipline', 'طلب استشارة')}
                     </Link>
                   </div>
                 </div>

@@ -10,7 +10,7 @@ export function getOrganizationSchema() {
     name: companyProfile.nameEn,
     alternateName: companyProfile.nameAr,
     url: SITE_URL,
-    logo: 'https://lh3.googleusercontent.com/aida/AEtjO1XzXVXz7fmZHHWoNc-vAaFxnc8CNcc531tfp4qmaCOLParGUyOTcH0mXIXtPa4mf8f7bhtp9_bA9LuDb0jHWJx9YZu-ZOtbrv4oGAoaLJKXsrzmk96BtKJ-dTCTjjENI3fmX6V_1-UtuDv5GaJMCpdhUis54YJRcK1_Bn1HyM1JzgShv5dgWMUY0jErjAtM62nYytE6_BsILPMcvu8y1jF8j2fCE99a9-_eA4rL9eVElf5O8GHuUxtsfeU',
+    logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDuFkUY4xCNoYI8FCW3adHnXZ5nAMTZKu2-Ge6_66zJ9av2vXxrXf9myclbdDoxflpSf62Q5f3bLh-uRLPQm9CarKZdgJTCRVLJCfyJ4oxeemjNa5mPrWNpxM5eDZ1Cw1OeRRCnbm-GqWQIdqWp4kikG37qQA0szUeZDv8ggcqELTmNEO25PzFtN93MfdSFsIXLgjU12gf7czNKeVPVkGCg_N70kJrd_JsOQYMhjKAGpynrpNAcx1cE',
     foundingDate: companyProfile.establishedYear,
     telephone: companyProfile.phonePrimary,
     email: companyProfile.email,

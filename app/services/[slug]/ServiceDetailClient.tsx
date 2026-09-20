@@ -334,7 +334,7 @@ export default function ServiceDetailClient({ service }: { service: ServiceDisci
                       {t(phase.description.en, phase.description.ar)}
                     </p>
                   </div>
-                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 text-[11px] font-mono text-slate-400">
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 text-[11px] font-mono text-slate-500 dark:text-slate-400">
                     {t(`Stage 0${mIdx + 1} of 04`, `المرحلة 0${mIdx + 1} من 04`)}
                   </div>
                 </div>
@@ -411,7 +411,7 @@ export default function ServiceDetailClient({ service }: { service: ServiceDisci
                     </div>
 
                     <div className="p-6 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-4">
-                      <span className="font-sans text-xs font-semibold text-slate-400">
+                      <span className="font-sans text-xs font-semibold text-slate-500 dark:text-slate-400">
                         {t(project.categoryLabel.en, project.categoryLabel.ar)}
                       </span>
                       <Link
@@ -419,7 +419,7 @@ export default function ServiceDetailClient({ service }: { service: ServiceDisci
                         className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                         aria-label={`${t('View project details for', 'عرض تفاصيل المشروع')} ${t(project.title.en, project.title.ar)}`}
                       >
-                        <span>{t('View Project', 'تفاصيل المشروع')}</span>
+                        <span>{t(`View ${project.title.en}`, `عرض ${project.title.ar}`)}</span>
                         <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
                       </Link>
                     </div>

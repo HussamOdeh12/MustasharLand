@@ -113,7 +113,7 @@ export default function ProjectsSection() {
                   href="/projects/mohammed-bin-zayed-stadium"
                   aria-label={`${t('View Case Study for', 'عرض تفاصيل مشروع')}: ${t('Mohammed bin Zayed Stadium', 'استاد محمد بن زايد')}`}
                 >
-                  <span>{t('View Case Study', 'عرض تفاصيل المشروع')}</span>
+                  <span>{t('View Stadium Case Study', 'عرض دراسة مشروع الاستاد')}</span>
                   <ArrowForward className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
                 </Link>
               </div>
@@ -167,7 +167,7 @@ export default function ProjectsSection() {
                 href="/projects/30-private-villas"
                 aria-label={`${t('View details for', 'تفاصيل مشروع')}: ${t('30 Private Villas', '30 فيلا خاصة')}`}
               >
-                <span>{t('View Details', 'تفاصيل المشروع')}</span>
+                <span>{t('View 30 Private Villas Project', 'عرض مشروع 30 فيلا خاصة')}</span>
                 <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>
@@ -223,7 +223,7 @@ export default function ProjectsSection() {
                 href="/projects/mep-enoc-callcenter-800850"
                 aria-label={`${t('Learn more about', 'تفاصيل مشروع')}: ${t('Technical Support for MEP & eNOC Systems', 'الدعم الفني لأنظمة MEP و eNOC')}`}
               >
-                <span>{t('Learn More', 'المزيد من التفاصيل')}</span>
+                <span>{t('View MEP & eNOC Support Project', 'عرض مشروع دعم MEP و eNOC')}</span>
                 <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>
@@ -273,7 +273,7 @@ export default function ProjectsSection() {
                 href="/projects/sharjah-roads-infrastructure"
                 aria-label={`${t('View case brief for', 'عرض تفاصيل مشروع')}: ${t('Sharjah Roads & Infrastructure', 'طرق وبنية تحتية في الشارقة')}`}
               >
-                <span>{t('Case Brief', 'موجز المشروع')}</span>
+                <span>{t('View Sharjah Infrastructure Project', 'عرض مشروع بنية الشارقة')}</span>
                 <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>

@@ -130,7 +130,7 @@ export default function ProjectsPage() {
         <section className="py-16 sm:py-20 bg-white dark:bg-[#0B1117] transition-colors">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-10">
             {/* Category Filter Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" role="tablist" aria-label={t('Filter projects by category', 'تصفية المشاريع حسب الفئة')}>
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" role="group" aria-label={t('Filter projects by category', 'تصفية المشاريع حسب الفئة')}>
               {categories.map((cat) => {
                 const active = selectedCategory === cat.id;
                 return (
@@ -138,8 +138,7 @@ export default function ProjectsPage() {
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
                     type="button"
-                    role="tab"
-                    aria-selected={active}
+                    aria-pressed={active}
                     className={`min-h-[44px] px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] focus-visible:ring-offset-2 ${
                       active
                         ? 'bg-[#16A34A] text-white shadow-xs'
@@ -181,7 +180,7 @@ export default function ProjectsPage() {
                     {/* Card Content */}
                     <div className="p-6 sm:p-7 space-y-4">
                       {project.location && (
-                        <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
+                        <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
                           <MapPin className="w-3.5 h-3.5 text-[#16A34A] shrink-0" aria-hidden="true" />
                           <span className="truncate">{t(project.location.en, project.location.ar)}</span>
                         </div>
@@ -213,7 +212,7 @@ export default function ProjectsPage() {
 
                   {/* Card Bottom Bar */}
                   <div className="p-6 sm:p-7 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 mt-4">
-                    <span className="font-sans text-xs font-semibold text-slate-400">
+                    <span className="font-sans text-xs font-semibold text-slate-500 dark:text-slate-400">
                       {t(project.categoryLabel.en, project.categoryLabel.ar)}
                     </span>
                     <Link
@@ -221,7 +220,7 @@ export default function ProjectsPage() {
                       className="inline-flex items-center gap-1.5 font-sans text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors min-h-[44px] py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A] rounded-sm"
                       aria-label={`${t('View project details for', 'عرض تفاصيل المشروع')} ${t(project.title.en, project.title.ar)}`}
                     >
-                      <span>{t('View Project Details', 'تفاصيل المشروع')}</span>
+                      <span>{t(`View ${project.title.en}`, `عرض ${project.title.ar}`)}</span>
                       <ArrowForward className="w-3.5 h-3.5 rtl:rotate-180" aria-hidden="true" />
                     </Link>
                   </div>

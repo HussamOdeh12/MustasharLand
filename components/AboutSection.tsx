@@ -72,7 +72,7 @@ export default function AboutSection() {
                 href="/services"
                 aria-label={t('Explore our engineering practice and services', 'استكشف مجالات عملنا وتخصصاتنا الهندسية')}
               >
-                <span>{t('Our Practice', 'مجالات عملنا')}</span>
+                <span>{t('Explore Engineering Practice', 'استكشف مجالات عملنا')}</span>
                 <ArrowForward className="w-4 h-4 rtl:rotate-180" aria-hidden="true" />
               </Link>
             </div>

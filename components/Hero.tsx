@@ -75,7 +75,8 @@ export default function Hero() {
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuFkUY4xCNoYI8FCW3adHnXZ5nAMTZKu2-Ge6_66zJ9av2vXxrXf9myclbdDoxflpSf62Q5f3bLh-uRLPQm9CarKZdgJTCRVLJCfyJ4oxeemjNa5mPrWNpxM5eDZ1Cw1OeRRCnbm-GqWQIdqWp4kikG37qQA0szUeZDv8ggcqELTmNEO25PzFtN93MfdSFsIXLgjU12gf7czNKeVPVkGCg_N70kJrd_JsOQYMhjKAGpynrpNAcx1cE"
               fill
               priority
-              sizes="(max-width: 1280px) 100vw, 1280px"
+              fetchPriority="high"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 95vw, 1200px"
               className="w-full h-full object-cover object-center transform hover:scale-[1.01] transition-transform duration-700 ease-out"
               referrerPolicy="no-referrer"
             />

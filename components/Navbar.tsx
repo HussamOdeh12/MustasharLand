@@ -198,15 +198,17 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Drawer Navigation */}
-        {mobileMenuOpen && (
-          <div
-            ref={mobileMenuDrawerRef}
-            className="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0B1117] px-6 py-6 space-y-4 shadow-xl"
-            id="mobile-nav-drawer"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('Mobile Navigation Menu', 'قائمة التنقل للهواتف')}
-          >
+        <div
+          ref={mobileMenuDrawerRef}
+          className={`lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0B1117] px-6 py-6 space-y-4 shadow-xl ${
+            mobileMenuOpen ? 'block' : 'hidden'
+          }`}
+          id="mobile-nav-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('Mobile Navigation Menu', 'قائمة التنقل للهواتف')}
+          aria-hidden={!mobileMenuOpen}
+        >
             <nav aria-label={t('Mobile Navigation Links', 'روابط التنقل للهواتف')} className="flex flex-col space-y-2 font-sans text-base font-medium">
               {navLinks.map((link) => {
                 const active = isLinkActive(link.href);
@@ -251,7 +253,6 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
-        )}
       </header>
     </>
   );

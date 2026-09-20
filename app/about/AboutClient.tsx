@@ -465,7 +465,7 @@ export default function AboutPage() {
                       <div className="w-10 h-10 rounded-lg bg-[#DCFCE7] dark:bg-[#16A34A]/20 flex items-center justify-center text-[#16A34A]">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="font-mono text-xs font-bold text-slate-400">
+                      <span className="font-mono text-xs font-bold text-slate-500 dark:text-slate-400">
                         {p.num}
                       </span>
                     </div>
