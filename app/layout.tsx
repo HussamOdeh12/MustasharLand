@@ -95,37 +95,69 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: `(function(){
   try {
-    if (typeof window !== 'undefined') {
-      ['fetch', 'Headers', 'Request', 'Response'].forEach(function(prop) {
+    var targets = [
+      typeof window !== 'undefined' ? window : null,
+      typeof Window !== 'undefined' && Window.prototype ? Window.prototype : null,
+      typeof self !== 'undefined' ? self : null,
+      typeof globalThis !== 'undefined' ? globalThis : null
+    ];
+    var props = ['fetch', 'Headers', 'Request', 'Response'];
+    targets.forEach(function(target) {
+      if (!target) return;
+      props.forEach(function(prop) {
         try {
-          var orig = window[prop];
-          try {
-            Object.defineProperty(window, prop, {
-              value: orig,
-              writable: true,
-              configurable: true,
-              enumerable: true
-            });
-          } catch(e1) {
+          var desc = Object.getOwnPropertyDescriptor(target, prop);
+          if (!desc || (desc.get && !desc.set) || (!desc.writable && desc.configurable)) {
+            var orig = target[prop];
             try {
-              var _val = orig;
-              Object.defineProperty(window, prop, {
-                get: function() { return _val; },
-                set: function(v) { _val = v; },
+              Object.defineProperty(target, prop, {
+                value: orig,
+                writable: true,
                 configurable: true,
-                enumerable: true
+                enumerable: desc ? desc.enumerable !== false : true
               });
-            } catch(e2) {}
+            } catch(e1) {
+              var customVal = orig;
+              try {
+                Object.defineProperty(target, prop, {
+                  get: function() { return customVal; },
+                  set: function(v) { customVal = v; },
+                  configurable: true,
+                  enumerable: desc ? desc.enumerable !== false : true
+                });
+              } catch(e2) {}
+            }
           }
         } catch(e) {}
       });
+    });
+
+    var isGetterErr = function(msg) {
+      return Boolean(msg && (
+        msg.indexOf('Cannot set property fetch of') !== -1 ||
+        msg.indexOf('which has only a getter') !== -1
+      ));
+    };
+
+    if (typeof window !== 'undefined') {
+      var prevOnError = window.onerror;
+      window.onerror = function(message, source, lineno, colno, error) {
+        var str = (message ? String(message) : '') + (error && error.message ? ' ' + error.message : '');
+        if (isGetterErr(str)) {
+          return true;
+        }
+        if (typeof prevOnError === 'function') {
+          return prevOnError.apply(this, arguments);
+        }
+        return false;
+      };
 
       window.addEventListener('error', function(event) {
-        if (event && event.message && (
-          event.message.indexOf('Cannot set property fetch of') !== -1 ||
-          event.message.indexOf('which has only a getter') !== -1
-        )) {
+        var str = (event && event.message ? String(event.message) : '') +
+                  (event && event.error && event.error.message ? ' ' + event.error.message : '');
+        if (isGetterErr(str)) {
           if (event.preventDefault) event.preventDefault();
+          if (event.stopImmediatePropagation) event.stopImmediatePropagation();
           return true;
         }
       }, true);
