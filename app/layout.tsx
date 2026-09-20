@@ -95,6 +95,44 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: `(function(){
   try {
+    if (typeof window !== 'undefined') {
+      ['fetch', 'Headers', 'Request', 'Response'].forEach(function(prop) {
+        try {
+          var orig = window[prop];
+          try {
+            Object.defineProperty(window, prop, {
+              value: orig,
+              writable: true,
+              configurable: true,
+              enumerable: true
+            });
+          } catch(e1) {
+            try {
+              var _val = orig;
+              Object.defineProperty(window, prop, {
+                get: function() { return _val; },
+                set: function(v) { _val = v; },
+                configurable: true,
+                enumerable: true
+              });
+            } catch(e2) {}
+          }
+        } catch(e) {}
+      });
+
+      window.addEventListener('error', function(event) {
+        if (event && event.message && (
+          event.message.indexOf('Cannot set property fetch of') !== -1 ||
+          event.message.indexOf('which has only a getter') !== -1
+        )) {
+          if (event.preventDefault) event.preventDefault();
+          return true;
+        }
+      }, true);
+    }
+  } catch(e) {}
+
+  try {
     var t = localStorage.getItem('mustasharland-theme');
     if (t === 'dark' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
